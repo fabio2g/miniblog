@@ -1,0 +1,40 @@
+.navbar {
+    width: 100%;
+    height: 65px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1450px;
+    height: 100%;
+    margin: auto;
+}
+
+.container .links {
+    display: flex;
+    align-items: center;
+}
+
+.container .brand {
+    font-size: 1.6em;
+}
+
+.brand span {
+    color: var(--color-primary);
+    font-weight: 900;
+}
+
+.links ul {
+    display: flex;
+    gap: 1.4em;
+    font-size: 17px;
+}
+
+.links ul a:hover {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
+}
