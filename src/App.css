@@ -1,3 +1,12 @@
 .App {
-  text-align: center;
+    text-align: center;
+}
+
+.dark {
+    background: #282828;
+    color: #fff;
+}
+
+.App .container {
+    min-height: 60vh;
 }

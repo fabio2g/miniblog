@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+    const [darkMode] = useState(false);
+
     return (
-        <nav className={styles.navbar}>
+        <nav className={darkMode ? styles.navbar_dark : styles.navbar}>
             <div className={styles.container}>
                 <div className={styles.links}>
                     <NavLink className={styles.brand} to={"/"}>
