@@ -1,6 +1,10 @@
 .footer,
 .footer_dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 40vh;
+    color: #fff;
 }
 
 .footer {
@@ -10,5 +14,4 @@
 .footer_dark {
     transition: 0.3s;
     background: var(--color-dark-primary);
-    color: #fff;
 }

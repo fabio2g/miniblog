@@ -27,12 +27,13 @@
 }
 
 .container .links {
+    text-align: center;
     display: flex;
     align-items: center;
 }
 
 .container .brand {
-    font-size: 1.6em;
+    font-size: 1.3em;
 }
 
 .brand span {
@@ -43,7 +44,6 @@
 .links ul {
     display: flex;
     gap: 1.4em;
-    font-size: 17px;
 }
 
 .links ul a:hover {
