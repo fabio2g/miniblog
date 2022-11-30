@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = ({ themeState }) => {
     const [theme, setTheme] = useState(false);
+    const [mobile, setMobile] = useState(false);
 
     const handleOnChange = () => {
         setTheme(!theme);
         themeState({ theme });
     };
+
+    const handleOnClick = () => {};
 
     return (
         <nav className={theme ? styles.navbar_dark : styles.navbar}>
@@ -17,7 +20,7 @@ const Navbar = ({ themeState }) => {
                     <NavLink className={styles.brand} to={"/"}>
                         Mini<span>Blog</span>
                     </NavLink>
-                    <ul>
+                    <ul className={styles.list_links}>
                         <li>
                             <NavLink to={"/login"}>Entrar</NavLink>
                         </li>
@@ -35,7 +38,13 @@ const Navbar = ({ themeState }) => {
                         </li>
                     </ul>
                 </div>
-                <div>
+                <div className={styles.box}>
+                    <div
+                        className={styles.menu_hamburguer}
+                        onClick={handleOnClick}
+                    >
+                        <i className="fa-sharp fa-solid fa-bars"></i>
+                    </div>
                     <label className={styles.switch}>
                         <input
                             type="checkbox"

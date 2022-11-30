@@ -10,6 +10,11 @@
 
 .App .container {
     min-height: 60vh;
-    width: 1200px;
+    max-width: 1200px;
     margin: auto;
+   
+}
+
+@media (max-width: 600px) {
+   
 }

@@ -1,8 +1,19 @@
 .box_login {
-    width: 500px;
-    margin: 60px auto 0;
-  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    height: 75vh;
+    margin: auto;
 }
 
+.box_login form {
+    width: 100%;
+}
 
-
+/* @media (max-width: 600px) {
+    .box_login {
+        padding: 16px;
+    }
+} */

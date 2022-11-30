@@ -30,6 +30,7 @@ h1 {
     color: var(--color-primary);
 }
 
+
 /* Navbar */
 nav li {
     list-style: none;
@@ -45,6 +46,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1.4em;
+   
 }
 
 form label {
