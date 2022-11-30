@@ -1,0 +1,12 @@
+.box_register {
+    margin: auto;
+    width: 500px;
+}
+
+.box_register h1 {
+    color: var(--color-primary);
+}
+
+.box_register form {
+    margin-bottom: 25px;
+}

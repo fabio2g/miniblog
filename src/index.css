@@ -52,8 +52,12 @@ form label input {
     font-size: 16px;
 }
 
+form button {
+    margin: 14px 0;
+}
+
 form a {
-    color: var(--color-primary)
+    color: var(--color-primary);
 }
 
 .btn_success {
