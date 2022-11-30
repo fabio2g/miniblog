@@ -4,7 +4,8 @@ import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
-import Home from "./Home/Home";
+import { About } from "./pages/About/About";
+import Home from "./pages/Home/Home";
 
 function App() {
     const [theme, setTheme] = useState(true);
@@ -20,6 +21,7 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route path="/" element={<Home />} />
+                        <Route path="/sobre" element={<About />} />
                     </Routes>
                 </div>
                 <Footer theme={theme} />

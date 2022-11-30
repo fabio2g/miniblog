@@ -22,7 +22,7 @@ const Navbar = ({ themeState }) => {
                             <NavLink to={"/"}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to={"/"}>Sobre</NavLink>
+                            <NavLink to={"/sobre"}>Sobre</NavLink>
                         </li>
                         <li>
                             <NavLink to={"/"}>Novo Post</NavLink>
