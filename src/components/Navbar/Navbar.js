@@ -19,13 +19,13 @@ const Navbar = ({ themeState }) => {
                     </NavLink>
                     <ul>
                         <li>
+                            <NavLink to={"/login"}>Entrar</NavLink>
+                        </li>
+                        <li>
                             <NavLink to={"/"}>Home</NavLink>
                         </li>
                         <li>
                             <NavLink to={"/sobre"}>Sobre</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/"}>Novo Post</NavLink>
                         </li>
                         <li>
                             <NavLink to={"/"}>Dashboard</NavLink>

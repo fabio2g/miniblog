@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
 import { About } from "./pages/About/About";
 import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
 
 function App() {
     const [theme, setTheme] = useState(true);
@@ -22,6 +23,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/sobre" element={<About />} />
+                        <Route path="/login" element={<Login />} />
                     </Routes>
                 </div>
                 <Footer theme={theme} />
