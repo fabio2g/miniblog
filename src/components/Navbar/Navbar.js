@@ -36,12 +36,14 @@ const Navbar = ({ themeState }) => {
                     </ul>
                 </div>
                 <div>
-                    <input
-                        type="checkbox"
-                        checked={theme}
-                        onChange={handleOnChange}
-                    />{" "}
-                    Dark Mode
+                    <label className={styles.switch}>
+                        <input
+                            type="checkbox"
+                            checked={theme}
+                            onChange={handleOnChange}
+                        />
+                        <span className={styles.slider}></span>
+                    </label>
                 </div>
             </div>
         </nav>
