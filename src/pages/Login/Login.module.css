@@ -1,0 +1,13 @@
+.box_login {
+    width: 500px;
+    margin: 60px auto 0;
+  
+}
+
+.box_login h1 {
+    color: var(--color-primary);
+}
+
+.box_login button {
+    margin-top: 14px;
+}
