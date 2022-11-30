@@ -1,6 +1,7 @@
 .footer,
 .footer_dark {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 40vh;
@@ -14,4 +15,22 @@
 .footer_dark {
     transition: 0.3s;
     background: var(--color-dark-primary);
+}
+
+.social_media {
+    margin-top: 6px;
+}
+
+.social_media a {
+    color: #fff;
+    padding: 6px;
+    transition: 0.3s;
+}
+
+.social_media i {
+    font-size: 22px;
+}
+
+.social_media a:hover {
+    color: #a6a6a6;
 }

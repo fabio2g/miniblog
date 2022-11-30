@@ -1,5 +1,5 @@
 .box_register {
-    margin: auto;
+    margin: 3.5em auto;
     width: 500px;
 }
 
@@ -7,6 +7,3 @@
     color: var(--color-primary);
 }
 
-.box_register form {
-    margin-bottom: 25px;
-}
