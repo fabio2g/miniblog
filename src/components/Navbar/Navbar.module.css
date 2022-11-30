@@ -7,8 +7,10 @@
 }
 
 .navbar_dark {
-    background: #111;
+    transition: 0.3s;
+    background: var(--color-dark-primary);
     color: #fff;
+    box-shadow: none;
 }
 
 .navbar_dark a {

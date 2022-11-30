@@ -3,7 +3,8 @@
 }
 
 .dark {
-    background: #282828;
+    transition: 0.3s;
+    background: #212121;
     color: #fff;
 }
 

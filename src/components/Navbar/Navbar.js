@@ -1,12 +1,17 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
-const Navbar = () => {
-    const [darkMode] = useState(false);
+const Navbar = ({ themeState }) => {
+    const [theme, setTheme] = useState(false);
+
+    const handleOnChange = () => {
+        setTheme(!theme);
+        themeState({ theme });
+    };
 
     return (
-        <nav className={darkMode ? styles.navbar_dark : styles.navbar}>
+        <nav className={theme ? styles.navbar_dark : styles.navbar}>
             <div className={styles.container}>
                 <div className={styles.links}>
                     <NavLink className={styles.brand} to={"/"}>
@@ -28,7 +33,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div>
-                    <input type="checkbox" /> Dark Mode
+                    <input
+                        type="checkbox"
+                        checked={theme}
+                        onChange={handleOnChange}
+                    />{" "}
+                    Dark Mode
                 </div>
             </div>
         </nav>

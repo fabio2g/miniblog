@@ -1,3 +1,14 @@
-.footer {
+.footer,
+.footer_dark {
     height: 40vh;
+}
+
+.footer {
+    background: var(--color-primary);
+}
+
+.footer_dark {
+    transition: 0.3s;
+    background: var(--color-dark-primary);
+    color: #fff;
 }

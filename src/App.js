@@ -3,21 +3,26 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
+import { ThemeProvider } from "./context/ThemeContext";
 import Home from "./Home/Home";
 
 function App() {
-    const [darkMode] = useState(false);
+    const [theme, setTheme] = useState(true);
+
+    const handleTheme = ({ theme }) => {
+        setTheme(theme);
+    };
 
     return (
-        <div className={darkMode ? "App dark" : "App"}>
+        <div className={theme ? "App" : "App dark"}>
             <BrowserRouter>
-                <Navbar />
+                <Navbar themeState={handleTheme} />
                 <div className="container">
                     <Routes>
                         <Route path="/" element={<Home />} />
                     </Routes>
                 </div>
-                <Footer />
+                <Footer theme={theme} />
             </BrowserRouter>
         </div>
     );
