@@ -25,6 +25,9 @@ const Navbar = ({ themeState }) => {
                             <NavLink to={"/"}>Home</NavLink>
                         </li>
                         <li>
+                            <NavLink to={"/post/create"}>Novo post</NavLink>
+                        </li>
+                        <li>
                             <NavLink to={"/about"}>Sobre</NavLink>
                         </li>
                         <li>
