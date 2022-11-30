@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
-import { ThemeProvider } from "./context/ThemeContext";
-import { About } from "./pages/About/About";
+import About from "./pages/About/About";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 
@@ -24,6 +24,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/login" element={<Login />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
                     </Routes>
                 </div>
                 <Footer theme={theme} />
