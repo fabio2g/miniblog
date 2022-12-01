@@ -1,7 +1,7 @@
 import { db } from "../firebase/config";
 import { useEffect, useState } from "react";
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export const useAuthentication = () => {
     const [error, setError] = useState("");
@@ -13,11 +13,11 @@ export const useAuthentication = () => {
     const checkIfIsCancelled = () => {
         if (cancelled) return;
     };
-    
+
     /**
-     * A função de login verifica na base de dados do firabase 
+     * A função de login verifica na base de dados do firabase
      * se email e senha estão cadastrados.
-     * 
+     *
      * @param {email, password} data
      */
     const login = async (data) => {
@@ -41,9 +41,17 @@ export const useAuthentication = () => {
         }
     };
 
+    /**
+     * Encerra a seção do usuário, desconectando o usuário da aplicação.
+     */
+    const logout = () => { 
+        checkIfIsCancelled();
+        signOut(auth);
+    };
+
     useEffect(() => {
         return () => setCancelled(true);
     }, []);
 
-    return { auth, login, loading, error };
+    return { auth, login, logout, loading, error };
 };

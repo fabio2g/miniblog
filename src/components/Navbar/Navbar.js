@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Navbar.module.css";
 
 const Navbar = ({ themeState }) => {
     const [theme, setTheme] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
+    const { logout } = useAuthentication();
+
     const handleOnChange = () => {
         setTheme(!theme);
         themeState({ theme });
     };
 
-    const handleOnClick = () => {
-    };
+    const handleOnClick = () => {};
     // console.log(window.innerWidth);
 
     return (
@@ -37,6 +39,11 @@ const Navbar = ({ themeState }) => {
                         </li>
                         <li>
                             <NavLink to={"/dashboard"}>Dashboard</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={"#"} onClick={logout}>
+                                Sair
+                            </NavLink>
                         </li>
                     </ul>
                 </div>

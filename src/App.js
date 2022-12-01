@@ -1,7 +1,7 @@
 import "./App.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useAuthentication } from "./hooks/useAuthentication";
 import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
@@ -33,10 +33,12 @@ function App() {
     const handleTheme = ({ theme }) => {
         setTheme(theme);
     };
-    
+
     if (loadingUser) {
         return <p>Carregando...</p>;
     }
+
+    console.log(user);
 
     return (
         <div className={theme ? "App" : "App dark"}>
@@ -45,11 +47,37 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/post/create" element={<CreatePost />} />
+                        <Route
+                            path="/post/create"
+                            element={
+                                user ? (
+                                    <CreatePost />
+                                ) : (
+                                    <Navigate to={"/login"} />
+                                )
+                            }
+                        />
                         <Route path="/about" element={<About />} />
-                        <Route path="/login" element={<Login />} />
-                        <Route path="/login/register" element={<Register />} />
-                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route
+                            path="/login"
+                            element={!user ? <Login /> : <Navigate to={"/"} />}
+                        />
+                        <Route
+                            path="/login/register"
+                            element={
+                                !user ? <Register /> : <Navigate to={"/"} />
+                            }
+                        />
+                        <Route
+                            path="/dashboard"
+                            element={
+                                user ? (
+                                    <Dashboard />
+                                ) : (
+                                    <Navigate to={"/login"} />
+                                )
+                            }
+                        />
                     </Routes>
                 </div>
                 <Footer theme={theme} />
