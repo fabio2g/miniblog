@@ -1,7 +1,14 @@
 import { db } from "../firebase/config";
 import { useEffect, useState } from "react";
 
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    signInWithEmailAndPassword,
+    signOut,
+    updateProfile,
+} from "firebase/auth";
+
 
 export const useAuthentication = () => {
     const [error, setError] = useState("");
@@ -15,7 +22,36 @@ export const useAuthentication = () => {
     };
 
     /**
-     * A função de login verifica na base de dados do firabase
+     * Cria um usuário autenticado através do email e senha.
+     *
+     * @param {email, password} data
+     * @returns
+     */
+    const createUser = async (data) => {
+        checkIfIsCancelled();
+        setLoading(true);
+        setError("");
+
+        try {
+            const { user } = await createUserWithEmailAndPassword(
+                auth,
+                data.email,
+                data.password
+            );
+
+            await updateProfile(user, {
+                displayName: data.displayName,
+            });
+
+            setLoading(false);
+        } catch (error) {
+            console.log(error.message);
+            setError(error.message);
+        }
+    };
+
+    /**
+     * Login verifica na base de dados do firabase
      * se email e senha estão cadastrados.
      *
      * @param {email, password} data
@@ -44,7 +80,7 @@ export const useAuthentication = () => {
     /**
      * Encerra a seção do usuário, desconectando o usuário da aplicação.
      */
-    const logout = () => { 
+    const logout = () => {
         checkIfIsCancelled();
         signOut(auth);
     };
@@ -53,5 +89,5 @@ export const useAuthentication = () => {
         return () => setCancelled(true);
     }, []);
 
-    return { auth, login, logout, loading, error };
+    return { auth, createUser, login, logout, loading, error };
 };
