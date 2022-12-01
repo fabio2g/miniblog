@@ -9,7 +9,6 @@ import {
     updateProfile,
 } from "firebase/auth";
 
-
 export const useAuthentication = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState("");
@@ -45,8 +44,14 @@ export const useAuthentication = () => {
 
             setLoading(false);
         } catch (error) {
+            if (error.message.includes("email-already-in-use")) {
+                setError("O e-mail já está sendo utilizado.");
+            } else {
+                setError(error.message);
+            }
+
             console.log(error.message);
-            setError(error.message);
+            setLoading(false);
         }
     };
 

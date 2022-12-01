@@ -103,3 +103,21 @@ form a {
 .btn_disabled:hover {
     background: #d4d3d3;
 }
+
+/* Messagem de alerta */
+.alert {
+    padding: 14px;
+    background: #f44336;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.alert span {
+    margin-left: 15px;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}

@@ -92,7 +92,12 @@ const Register = () => {
                 ) : (
                     <button className="btn_success">Cadastrar</button>
                 )}
-                {error && <small>{error}</small>}
+                {error && (
+                    <div className="alert">
+                        <span onClick={() => setError("")}>&times;</span>
+                        <small>{error}</small>
+                    </div>
+                )}
             </form>
         </div>
     );
