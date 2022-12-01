@@ -39,6 +39,8 @@ function App() {
         return <p>Carregando...</p>;
     }
 
+    console.log(user)
+
     return (
         <div className={theme ? "App" : "App dark"}>
             <AuthProvider value={{ user }}>

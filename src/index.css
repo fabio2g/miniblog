@@ -30,7 +30,6 @@ h1 {
     color: var(--color-primary);
 }
 
-
 /* Navbar */
 nav li {
     list-style: none;
@@ -46,7 +45,6 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1.4em;
-   
 }
 
 form label {
@@ -95,4 +93,13 @@ form a {
 
 .btn_success:hover {
     background: #8832c1;
+}
+
+.btn_disabled {
+    background: #d4d3d3;
+    color: #000;
+}
+
+.btn_disabled:hover {
+    background: #d4d3d3;
 }
