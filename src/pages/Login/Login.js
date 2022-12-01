@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Login.module.css";
@@ -6,8 +6,9 @@ import styles from "./Login.module.css";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
-    const { login, loading, error } = useAuthentication();
+    const { login, loading, error: errorAuth } = useAuthentication();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,6 +20,10 @@ const Login = () => {
 
         await login(user);
     };
+
+    useEffect(() => {
+        if (errorAuth) setError(errorAuth);
+    }, [errorAuth]);
 
     return (
         <div className={styles.box_login}>
@@ -46,11 +51,24 @@ const Login = () => {
                         value={password}
                     />
                 </label>
-                <button className="btn_success">Entrar </button>
+                {loading ? (
+                    <button className="btn_success btn_disabled" disabled>
+                        Aguarde...
+                    </button>
+                ) : (
+                    <button className="btn_success">Entrar</button>
+                )}
+
                 <p>
-                    Ainda não possui um conta?
+                    Ainda não possui um conta?{" "}
                     <Link to={"/login/register"}>Registre-se</Link>
                 </p>
+                {error && (
+                    <div className="alert">
+                        <span onClick={() => setError("")}>&times;</span>
+                        <small>{error}</small>
+                    </div>
+                )}
             </form>
         </div>
     );
