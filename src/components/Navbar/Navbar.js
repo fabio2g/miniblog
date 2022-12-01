@@ -10,8 +10,12 @@ const Navbar = ({ themeState }) => {
     const { logout } = useAuthentication();
     const { user } = useAuthValue();
 
+    const handleButtonClose = () => {
+        if (window.confirm("Desejá realmente sair?")) {
+            logout();
+        }
+    };
 
-    
     const handleOnChange = () => {
         setTheme(!theme);
         themeState({ theme });
@@ -44,7 +48,7 @@ const Navbar = ({ themeState }) => {
                         </li>
                         {user && (
                             <li>
-                                <NavLink to={"#"} onClick={logout}>
+                                <NavLink to={"#"} onClick={handleButtonClose}>
                                     Sair
                                 </NavLink>
                             </li>
