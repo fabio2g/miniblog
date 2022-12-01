@@ -9,8 +9,8 @@
 }
 
 .App .container {
-    min-height: 60vh;
     max-width: 1200px;
+    min-height: 60vh;
     margin: auto;
    
 }

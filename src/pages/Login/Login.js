@@ -28,6 +28,7 @@ const Login = () => {
     return (
         <div className={styles.box_login}>
             <h1>Login</h1>
+            <p className={styles.message}>Faça seu login e compartilhe seu conhecimento</p>
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>E-mail:</span>

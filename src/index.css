@@ -2,6 +2,7 @@
 
 :root {
     --color-primary: #aa3ff1;
+    --color-danger: #f44336;
     --color-dark-primary: #1c1c1c;
 }
 
@@ -69,6 +70,7 @@ form label input {
     border-bottom: 1px solid #999;
     outline: none;
     font-size: 16px;
+    margin: 10px 0;
 }
 
 form button {
@@ -96,28 +98,33 @@ form a {
 }
 
 .btn_disabled {
-    background: #d4d3d3;
+    background: var(--color-danger);
     color: #000;
 }
 
 .btn_disabled:hover {
-    background: #d4d3d3;
+    background: var(--color-danger);
 }
 
 /* Messagem de alerta */
 .alert {
     padding: 14px;
-    background: #f44336;
+    background: var(--color-danger);
     color: #fff;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 
 .alert span {
     margin-left: 15px;
     font-weight: bold;
     float: right;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.alert span:hover {
+    color: #000;
 }
