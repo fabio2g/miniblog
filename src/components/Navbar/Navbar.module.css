@@ -24,6 +24,7 @@
     max-width: 1450px;
     height: 100%;
     margin: auto;
+    padding: 0 18px;
 }
 
 .links {
@@ -64,8 +65,8 @@
 }
 
 .menu_hamburguer i {
-    /* display: none; */
-    font-size: 28px;
+    display: none;
+    font-size: 32px;
     color: var(--color-primary);
     cursor: pointer;
 }
@@ -151,5 +152,9 @@ input:checked + .slider:before {
         height: 65px;
         border-bottom: 1px solid #3b3b3b;
         /* background: #000; */
+    }
+
+    .menu_hamburguer i {
+        display: block;
     }
 }

@@ -1,11 +1,19 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Login.module.css";
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <div className={styles.box_login}>
             <h1>Login</h1>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     <span>E-mail:</span>
                     <input
@@ -13,6 +21,8 @@ const Login = () => {
                         name="email"
                         placeholder="E-mail do usuário"
                         required
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                     />
                 </label>
                 <label>
@@ -22,6 +32,8 @@ const Login = () => {
                         name="password"
                         placeholder="Informe sua senha"
                         required
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                     />
                 </label>
                 <button className="btn_success">Entrar </button>

@@ -4,14 +4,16 @@ import styles from "./Navbar.module.css";
 
 const Navbar = ({ themeState }) => {
     const [theme, setTheme] = useState(false);
-    const [mobile, setMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     const handleOnChange = () => {
         setTheme(!theme);
         themeState({ theme });
     };
 
-    const handleOnClick = () => {};
+    const handleOnClick = () => {
+    };
+    console.log(window.innerWidth);
 
     return (
         <nav className={theme ? styles.navbar_dark : styles.navbar}>
