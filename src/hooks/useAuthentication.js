@@ -13,7 +13,13 @@ export const useAuthentication = () => {
     const checkIfIsCancelled = () => {
         if (cancelled) return;
     };
-
+    
+    /**
+     * A função de login verifica na base de dados do firabase 
+     * se email e senha estão cadastrados.
+     * 
+     * @param {email, password} data
+     */
     const login = async (data) => {
         checkIfIsCancelled();
         setLoading(true);
@@ -38,7 +44,6 @@ export const useAuthentication = () => {
     useEffect(() => {
         return () => setCancelled(true);
     }, []);
-    console.log(error);
 
-    return { login, loading, error };
+    return { auth, login, loading, error };
 };
