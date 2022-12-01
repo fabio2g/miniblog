@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useAuthValue } from "../../context/AuthContext";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Navbar.module.css";
 
@@ -8,6 +9,10 @@ const Navbar = ({ themeState }) => {
     const [isMobile, setIsMobile] = useState(false);
 
     const { logout } = useAuthentication();
+
+    const { user } = useAuthValue();
+
+    console.log("nav:", user.displayName);
 
     const handleOnChange = () => {
         setTheme(!theme);
