@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Login.module.css";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
+    const { login, loading, error } = useAuthentication();
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const user = {
+            email,
+            password,
+        };
+
+        await login(user);
     };
 
     return (

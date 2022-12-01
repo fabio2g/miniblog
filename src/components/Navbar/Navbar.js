@@ -13,7 +13,7 @@ const Navbar = ({ themeState }) => {
 
     const handleOnClick = () => {
     };
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
 
     return (
         <nav className={theme ? styles.navbar_dark : styles.navbar}>
