@@ -6,21 +6,16 @@ import styles from "./Navbar.module.css";
 
 const Navbar = ({ themeState }) => {
     const [theme, setTheme] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
 
     const { logout } = useAuthentication();
-
     const { user } = useAuthValue();
 
-    console.log("nav:", user.displayName);
 
+    
     const handleOnChange = () => {
         setTheme(!theme);
         themeState({ theme });
     };
-
-    const handleOnClick = () => {};
-    // console.log(window.innerWidth);
 
     return (
         <nav className={theme ? styles.navbar_dark : styles.navbar}>
@@ -30,9 +25,11 @@ const Navbar = ({ themeState }) => {
                         Mini<span>Blog</span>
                     </NavLink>
                     <ul className={styles.list_links}>
-                        <li>
-                            <NavLink to={"/login"}>Entrar</NavLink>
-                        </li>
+                        {!user && (
+                            <li>
+                                <NavLink to={"/login"}>Entrar</NavLink>
+                            </li>
+                        )}
                         <li>
                             <NavLink to={"/"}>Home</NavLink>
                         </li>
@@ -45,18 +42,17 @@ const Navbar = ({ themeState }) => {
                         <li>
                             <NavLink to={"/dashboard"}>Dashboard</NavLink>
                         </li>
-                        <li>
-                            <NavLink to={"#"} onClick={logout}>
-                                Sair
-                            </NavLink>
-                        </li>
+                        {user && (
+                            <li>
+                                <NavLink to={"#"} onClick={logout}>
+                                    Sair
+                                </NavLink>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className={styles.box}>
-                    <div
-                        className={styles.menu_hamburguer}
-                        onClick={handleOnClick}
-                    >
+                    <div className={styles.menu_hamburguer}>
                         <i className="fa-sharp fa-solid fa-bars"></i>
                     </div>
                     <label className={styles.switch}>
