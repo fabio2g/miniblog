@@ -6,12 +6,43 @@ const CreatePost = () => {
     const [image, setImage] = useState("");
     const [body, setBody] = useState("");
     const [tags, setTags] = useState("");
+    const [error, setError] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        /**
+         * Verifica se a URL passada por parâmetro é válida.
+         *
+         * @param {String} url
+         * @returns
+         */
+        function isURL(url) {
+            const expression =
+                /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+
+            const regex = new RegExp(expression);
+
+            return url.match(regex) ? true : false;
+        }
+
+        if (!isURL(image)) {
+            setError("URL inválida.");
+            return;
+        }
+
+        const tagsArray = tags
+            .split(",")
+            .map((tag) => tag.trim().toLowerCase());
+
+        // console.log(tagsArray);
+    };
 
     return (
-        <div>
+        <div className={styles.box_createPost}>
             <h1>Criar post</h1>
             <p>Escreva sobre seus interesse e compartilhe seu conhecimeto!</p>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>
                     <span>Título:</span>
                     <input
@@ -57,6 +88,12 @@ const CreatePost = () => {
                 </label>
                 <button className="btn_success">Postar</button>
             </form>
+            {error && (
+                <div className="alert">
+                    <span onClick={() => setError("")}>&times;</span>
+                    <small>{error}</small>
+                </div>
+            )}
         </div>
     );
 };

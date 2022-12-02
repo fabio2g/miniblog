@@ -1,0 +1,8 @@
+.box_createPost {
+    width: 650px;
+    margin: auto;
+}
+
+.box_createPost form {
+    margin-top: 2em;
+}
