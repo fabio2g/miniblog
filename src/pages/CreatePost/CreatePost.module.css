@@ -1,8 +1,12 @@
 .box_createPost {
     width: 650px;
-    margin: auto;
+    margin: 4em auto;
 }
 
 .box_createPost form {
     margin-top: 2em;
+}
+
+form button {
+    margin-bottom: 1.5em;
 }

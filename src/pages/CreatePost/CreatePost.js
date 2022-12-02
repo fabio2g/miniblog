@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import styles from "./CreatePost.module.css";
@@ -11,39 +12,42 @@ const CreatePost = () => {
     const [error, setError] = useState("");
 
     const { user } = useAuthValue();
-    const { insertDocument, loading } = useInsertDocument("posts");
+    const {
+        insertDocument,
+        loading,
+        error: errorInsert,
+    } = useInsertDocument("posts");
+
+    const navegate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        function isValidUrl(url) {
-            try {
-                new URL(url);
-                return true;
-            } catch (error) {
-                return false;
-            }
-        }
-
-        if (!isValidUrl(image)) {
-            setError("URL inválida.");
-            return;
+        try {
+            new URL(image);
+        } catch (error) {
+            setError("A imagem precisa ser uma URL.");
         }
 
         const tagsArray = tags
             .split(",")
             .map((tag) => tag.trim().toLowerCase());
 
-        console.log("start");
         insertDocument({
             title,
+            image,
             body,
             tagsArray,
             user: user.uid,
             createdBy: user.displayName,
         });
-        console.log("end");
+
+        navegate("/")
     };
+
+    useEffect(() => {
+        if (errorInsert) return () => setError(errorInsert);
+    }, [errorInsert]);
 
     return (
         <div className={styles.box_createPost}>
@@ -75,8 +79,6 @@ const CreatePost = () => {
                     <span>Conteúdo:</span>
                     <textarea
                         name="body"
-                        cols="30"
-                        rows="10"
                         placeholder="Insira o conteúdo do post"
                         required
                         onChange={(e) => setBody(e.target.value)}
@@ -93,7 +95,13 @@ const CreatePost = () => {
                         value={tags}
                     />
                 </label>
-                <button className="btn_success">Postar</button>
+                {loading ? (
+                    <button className="btn_success btn_disabled" disabled>
+                        Aguarde...
+                    </button>
+                ) : (
+                    <button className="btn_success">Postar</button>
+                )}
             </form>
             {error && (
                 <div className="alert">
