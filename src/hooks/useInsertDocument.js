@@ -8,15 +8,13 @@ export const useInsertDocument = (docCollection) => {
     const [cancelled, setCancelled] = useState(false);
 
     const insertDocument = async (document) => {
-        if (cancelled) return;
+        if (!document) return;
 
         setLoading(true);
 
         try {
-            // const newDocument = { ...document, createAt: Timestamp.now() };
-            // await addDoc(collection(db, docCollection), newDocument);
-
-            console.log("document:", ...document, "createAt:", Timestamp.now(), docCollection);
+            const newDocument = { ...document, createAt: Timestamp.now() };
+            await addDoc(collection(db, docCollection), newDocument);
 
             setLoading(false);
         } catch (error) {
@@ -28,7 +26,7 @@ export const useInsertDocument = (docCollection) => {
 
     useEffect(() => {
         return () => setCancelled(true);
-    });
+    },[]);
 
     return { insertDocument, loading, error };
 };
