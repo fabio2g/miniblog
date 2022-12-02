@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuthValue } from "../../context/AuthContext";
 import styles from "./CreatePost.module.css";
 
 const CreatePost = () => {
@@ -8,25 +9,21 @@ const CreatePost = () => {
     const [tags, setTags] = useState("");
     const [error, setError] = useState("");
 
+    const { user } = useAuthValue();
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        /**
-         * Verifica se a URL passada por parâmetro é válida.
-         *
-         * @param {String} url
-         * @returns
-         */
-        function isURL(url) {
-            const expression =
-                /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
-
-            const regex = new RegExp(expression);
-
-            return url.match(regex) ? true : false;
+        function isValidUrl(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch (error) {
+                return false;
+            }
         }
 
-        if (!isURL(image)) {
+        if (!isValidUrl(image)) {
             setError("URL inválida.");
             return;
         }
