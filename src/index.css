@@ -61,7 +61,8 @@ form label span {
     margin-bottom: 2px;
 }
 
-form label input {
+form label input,
+form label textarea {
     font-family: "Montserrat", sans-serif;
     background: transparent;
     color: #777;
@@ -71,6 +72,11 @@ form label input {
     outline: none;
     font-size: 16px;
     margin: 10px 0;
+}
+
+form label textarea {
+    border: 1px solid #999;
+    padding: 12px;
 }
 
 form button {
