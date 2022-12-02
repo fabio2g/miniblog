@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthValue } from "../../context/AuthContext";
+import { useInsertDocument } from "../../hooks/useInsertDocument";
 import styles from "./CreatePost.module.css";
 
 const CreatePost = () => {
@@ -10,6 +11,7 @@ const CreatePost = () => {
     const [error, setError] = useState("");
 
     const { user } = useAuthValue();
+    const { insertDocument, loading } = useInsertDocument("posts");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,7 +34,15 @@ const CreatePost = () => {
             .split(",")
             .map((tag) => tag.trim().toLowerCase());
 
-        // console.log(tagsArray);
+        console.log("start");
+        insertDocument({
+            title,
+            body,
+            tagsArray,
+            user: user.uid,
+            createdBy: user.displayName,
+        });
+        console.log("end");
     };
 
     return (
