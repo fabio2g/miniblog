@@ -1,0 +1,9 @@
+.box_home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin: 3em auto;
+    max-width: 1100px;
+    padding: 2px;
+}
