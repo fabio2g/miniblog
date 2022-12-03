@@ -45,9 +45,10 @@ const CardPost = ({ post }) => {
                     Postado por {post.createdBy} em {formatDatePost()}
                 </small>
                 <div className={styles.tags}>
-                    {post.tagsArray.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                    ))}
+                    {post.tagsArray &&
+                        post.tagsArray.map((tag) => (
+                            <span key={tag}>{tag}</span>
+                        ))}
                 </div>
 
                 <Link to={`/post/${post.id}`}>

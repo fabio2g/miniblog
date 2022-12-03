@@ -5,16 +5,14 @@
 .dark {
     transition: 0.3s;
     background: #212121;
-    color: #fff;
+    color: #ccc;
 }
 
 .App .container {
     max-width: 1200px;
     min-height: 60vh;
     margin: auto;
-   
 }
 
 @media (max-width: 600px) {
-   
 }
