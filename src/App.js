@@ -12,6 +12,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { AuthProvider } from "./context/AuthContext";
+import Post from "./pages/Post/Post";
 
 function App() {
     const [user, setUser] = useState(undefined);
@@ -57,6 +58,7 @@ function App() {
                                     )
                                 }
                             />
+                            <Route path="/post/:id" element={<Post />} />
                             <Route path="/about" element={<About />} />
                             <Route
                                 path="/login"

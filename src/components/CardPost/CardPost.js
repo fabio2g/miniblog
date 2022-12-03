@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./CardPost.module.css";
 
 const CardPost = ({ post }) => {
@@ -48,7 +49,10 @@ const CardPost = ({ post }) => {
                         <span key={tag}>{tag}</span>
                     ))}
                 </div>
-                <button className="btn_success">Ver mais</button>
+
+                <Link to={`/post/${post.id}`}>
+                    <button className="btn_success">Ver mais</button>
+                </Link>
             </div>
         </div>
     );
