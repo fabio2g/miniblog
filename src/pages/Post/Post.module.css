@@ -23,3 +23,10 @@
 .box_error button {
     width: 300px;
 }
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}

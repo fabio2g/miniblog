@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./CardPost.module.css";
 
-const CardPost = ({ post }) => {
+const CardPost = ({ post, theme }) => {
     const formatDatePost = () => {
         // const datePost = new Date(post.createAt.seconds * 1000)
         //     .toLocaleString()
@@ -37,7 +37,10 @@ const CardPost = ({ post }) => {
     };
 
     return (
-        <div className={styles.box_card} key={post.id}>
+        <div
+            className={theme ? styles.box_card : styles.box_card_dark}
+            key={post.id}
+        >
             <img src={post.image} alt={post.title} />
             <div className={styles.content}>
                 <h2>{post.title}</h2>

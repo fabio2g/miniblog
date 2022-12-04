@@ -37,7 +37,11 @@ function App() {
     };
 
     if (loadingUser) {
-        return <p>Carregando...</p>;
+        return (
+            <div className="box_loader">
+                <div className="loader"></div>
+            </div>
+        );
     }
 
     return (
@@ -47,7 +51,7 @@ function App() {
                     <Navbar themeState={handleTheme} />
                     <div className="container">
                         <Routes>
-                            <Route path="/" element={<Home />} />
+                            <Route path="/" element={<Home theme={theme} />} />
                             <Route
                                 path="/post/create"
                                 element={

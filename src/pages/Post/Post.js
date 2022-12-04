@@ -14,7 +14,9 @@ const Post = () => {
     return (
         <div className={styles.box_post}>
             {loading ? (
-                <h2>Carregando...</h2>
+                <div className={styles.loading}>
+                    <div class="loader"></div>
+                </div>
             ) : (
                 <>
                     <img src={post.image} alt={post.title} />

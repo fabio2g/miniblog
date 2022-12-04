@@ -16,58 +16,48 @@ const Navbar = ({ themeState }) => {
         }
     };
 
-    const handleOnChange = () => {
+    const handleOnClick = () => {
         setTheme(!theme);
         themeState({ theme });
     };
 
+    console.log(theme);
+
     return (
         <nav className={theme ? styles.navbar_dark : styles.navbar}>
             <div className={styles.container}>
-                <div className={styles.links}>
-                    <NavLink className={styles.brand} to={"/"}>
-                        Mini<span>Blog</span>
-                    </NavLink>
-                    <ul className={styles.list_links}>
-                        {!user && (
-                            <li>
-                                <NavLink to={"/login"}>Entrar</NavLink>
-                            </li>
-                        )}
+                <NavLink className={styles.brand} to={"/"}>
+                    Mini<span>Blog</span>
+                </NavLink>
+                <ul className={styles.list_links}>
+                    <li>
+                        <input type="checkbox" onClick={handleOnClick} />
+                    </li>
+                    {!user && (
                         <li>
-                            <NavLink to={"/"}>Home</NavLink>
+                            <NavLink to={"/login"}>Entrar</NavLink>
                         </li>
+                    )}
+                    <li>
+                        <NavLink to={"/"}>Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/post/create"}>Novo post</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/about"}>Sobre</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"/dashboard"}>Dashboard</NavLink>
+                    </li>
+                    {user && (
                         <li>
-                            <NavLink to={"/post/create"}>Novo post</NavLink>
+                            <NavLink to={"#"} onClick={handleButtonClose}>
+                                Sair
+                            </NavLink>
                         </li>
-                        <li>
-                            <NavLink to={"/about"}>Sobre</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/dashboard"}>Dashboard</NavLink>
-                        </li>
-                        {user && (
-                            <li>
-                                <NavLink to={"#"} onClick={handleButtonClose}>
-                                    Sair
-                                </NavLink>
-                            </li>
-                        )}
-                    </ul>
-                </div>
-                <div className={styles.box}>
-                    <div className={styles.menu_hamburguer}>
-                        <i className="fa-sharp fa-solid fa-bars"></i>
-                    </div>
-                    <label className={styles.switch}>
-                        <input
-                            type="checkbox"
-                            checked={theme}
-                            onChange={handleOnChange}
-                        />
-                        <span className={styles.slider}></span>
-                    </label>
-                </div>
+                    )}
+                </ul>
             </div>
         </nav>
     );
