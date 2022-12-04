@@ -53,7 +53,7 @@ const CreatePost = () => {
         <div className={styles.box_createPost}>
             <h1>Criar post</h1>
             <p>Escreva sobre seus interesse e compartilhe seu conhecimeto!</p>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
                 <label>
                     <span>Título:</span>
                     <input

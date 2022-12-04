@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useAuthentication } from "../../hooks/useAuthentication";
@@ -20,8 +20,6 @@ const Navbar = ({ themeState }) => {
         setTheme(!theme);
         themeState({ theme });
     };
-
-    console.log(theme);
 
     return (
         <nav className={theme ? styles.navbar_dark : styles.navbar}>

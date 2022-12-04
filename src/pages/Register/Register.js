@@ -40,7 +40,7 @@ const Register = () => {
     return (
         <div className={styles.box_register}>
             <h1>Registre-se</h1>
-            <form onSubmit={handeleSubmit}>
+            <form className="form" onSubmit={handeleSubmit}>
                 <label>
                     <span>Nome:</span>
                     <input

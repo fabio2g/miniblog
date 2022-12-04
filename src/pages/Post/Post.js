@@ -15,7 +15,7 @@ const Post = () => {
         <div className={styles.box_post}>
             {loading ? (
                 <div className={styles.loading}>
-                    <div class="loader"></div>
+                    <div className="loader"></div>
                 </div>
             ) : (
                 <>

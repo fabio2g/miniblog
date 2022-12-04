@@ -42,27 +42,27 @@ nav a {
 }
 
 /* Form */
-form {
+.form {
     display: flex;
     flex-direction: column;
     gap: 1.4em;
 }
 
-form label {
+.form label {
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
-form label span {
+.form label span {
     font-weight: bold;
     font-size: 17px;
     color: var(--color-primary);
     margin-bottom: 2px;
 }
 
-form label input,
-form label textarea {
+.form label input,
+.form label textarea {
     font-family: "Montserrat", sans-serif;
     background: transparent;
     color: #777;
@@ -74,16 +74,16 @@ form label textarea {
     margin: 10px 0;
 }
 
-form label textarea {
+.form label textarea {
     border: 1px solid #999;
     padding: 12px;
 }
 
-form button {
+.form button {
     margin: 14px 0;
 }
 
-form a {
+.form a {
     color: var(--color-primary);
 }
 
