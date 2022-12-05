@@ -9,14 +9,12 @@ const Home = ({ theme }) => {
 
     const { documents: posts, loading, error } = useFetchDocuments("posts");
 
-    const navegate = useNavigate();
+    let navegate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (search) {
-            return (navegate = `/search?query=${search}`);
-        }
+        if (search) return navegate(`/search?query=${search}`);
     };
 
     return (
