@@ -44,14 +44,6 @@ button {
     color: #666;
 }
 
-.container_posts {
-    margin: 4em auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    padding: 2px;
-}
 
 .loading {
     width: 100%;

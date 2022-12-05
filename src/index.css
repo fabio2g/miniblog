@@ -154,6 +154,15 @@ nav a {
     animation: spin 2s linear infinite;
 }
 
+.container_posts {
+    margin: 4em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 2px;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);

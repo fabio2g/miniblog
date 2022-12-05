@@ -53,7 +53,10 @@ function App() {
                     <div className="container">
                         <Routes>
                             <Route path="/" element={<Home theme={theme} />} />
-                            <Route path="/search" element={<Search />} />
+                            <Route
+                                path="/search"
+                                element={<Search theme={theme} />}
+                            />
                             <Route path="/post/:id" element={<Post />} />
                             <Route path="/about" element={<About />} />
                             <Route

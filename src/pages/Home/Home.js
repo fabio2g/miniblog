@@ -40,7 +40,7 @@ const Home = ({ theme }) => {
                     </form>
                 </>
             )}
-            <div className={styles.container_posts}>
+            <div className={"container_posts"}>
                 {posts &&
                     posts.map((post) => (
                         <CardPost key={post.id} post={post} theme={theme} />

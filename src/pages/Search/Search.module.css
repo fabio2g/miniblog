@@ -1,0 +1,12 @@
+.box_search {
+    margin: 3em auto;
+    min-height: 60vh;
+}
+
+.box_search h2 {
+    font-size: 2em;
+}
+
+.box_search h2 span {
+    color: var(--color-primary);
+}
