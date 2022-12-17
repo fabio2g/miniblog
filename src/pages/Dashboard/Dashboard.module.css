@@ -1,0 +1,59 @@
+.box_dashboard {
+    max-width: 800px;
+    margin: auto;
+}
+
+.box_table_posts {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table_header {
+    text-align: center;
+}
+
+.column1 {
+    text-align: left;
+    max-width: 75%;
+}
+
+.column2 {
+    width: 25%;
+    max-width: 25%;
+}
+
+.column1,
+.column2 {
+    border-bottom: 1px solid #dddddd;
+    padding: 8px 0;
+}
+
+.column2 div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.column2 button {
+    background: #ccc;
+    border: none;
+    outline: none;
+    padding: 6px 12px;
+    line-height: 24px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.box_table_posts .danger {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+.box_table_posts .success {
+    background: #198754;
+    color: #ffffff;
+}
+
+.box_table_posts .alert {
+    background: #ffc107;
+    color: #000;
+}

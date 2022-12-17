@@ -20,7 +20,7 @@ const Home = ({ theme }) => {
     return (
         <div className={styles.box_home}>
             {loading && (
-                <div className={styles.loading}>
+                <div className={"loading"}>
                     <div className="loader"></div>
                 </div>
             )}

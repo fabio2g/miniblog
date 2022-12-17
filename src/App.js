@@ -14,6 +14,7 @@ import Register from "./pages/Register/Register";
 import { AuthProvider } from "./context/AuthContext";
 import Post from "./pages/Post/Post";
 import Search from "./pages/Search/Search";
+import EditPost from "./pages/EditPost/EditPost";
 
 function App() {
     const [user, setUser] = useState(undefined);
@@ -64,6 +65,16 @@ function App() {
                                 element={
                                     user ? (
                                         <CreatePost />
+                                    ) : (
+                                        <Navigate to={"/login"} />
+                                    )
+                                }
+                            />
+                            <Route
+                                path="/post/edit/:id"
+                                element={
+                                    user ? (
+                                        <EditPost />
                                     ) : (
                                         <Navigate to={"/login"} />
                                     )

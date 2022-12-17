@@ -7,13 +7,24 @@ const Search = ({ theme }) => {
     const query = useQuery();
     const search = query.get("query").toLocaleLowerCase();
 
-    const { documents: posts } = useFetchDocuments("posts", search);
+    const {
+        documents: posts,
+        loading,
+        error,
+    } = useFetchDocuments("posts", search);
 
     return (
         <div className={styles.box_search}>
-            <h2>
-                Resultados para: <span>{search}</span>{" "}
-            </h2>
+            {loading && (
+                <div className={"loading"}>
+                    <div className="loader"></div>
+                </div>
+            )}
+            {!loading && (
+                <h2>
+                    Resultados para: <span>{search}</span>{" "}
+                </h2>
+            )}
             <div className={"container_posts"}>
                 {posts &&
                     posts.map((post) => (

@@ -8,7 +8,11 @@ import {
     where,
 } from "firebase/firestore";
 
-export const useFetchDocuments = (docColllection, search = null) => {
+export const useFetchDocuments = (
+    docColllection,
+    search = null,
+    uid = null
+) => {
     const [documents, setDocuments] = useState("");
     const [loading, setLoading] = useState("");
     const [error, setError] = useState("");
@@ -30,6 +34,12 @@ export const useFetchDocuments = (docColllection, search = null) => {
                     dataQuery = await query(
                         collectionRef,
                         where("tagsArray", "array-contains", search),
+                        orderBy("createAt", "desc")
+                    );
+                } else if (uid) {
+                    dataQuery = await query(
+                        collectionRef,
+                        where("uid", "==", uid),
                         orderBy("createAt", "desc")
                     );
                 } else {
@@ -55,7 +65,7 @@ export const useFetchDocuments = (docColllection, search = null) => {
             }
         };
         loadDocuments();
-    }, [docColllection, cancelled]);
+    }, [docColllection, search, uid, cancelled]);
 
     useEffect(() => {
         return () => setCancelled(true);
