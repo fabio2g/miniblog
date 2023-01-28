@@ -16,8 +16,15 @@
     color: #999;
 }
 
+
+.box_post .content_body {
+    line-height: 40px;
+    font-size: 18px;
+}
+
 .box_error {
     text-align: center;
+    text-align: justify;
 }
 
 .box_error button {

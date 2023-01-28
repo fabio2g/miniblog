@@ -5,8 +5,8 @@ import { useAuthValue } from "../../context/AuthContext";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ themeState }) => {
-    const [theme, setTheme] = useState(false);
+const Navbar = (props) => {
+    const [theme, setTheme] = useState(localStorage.getItem("Theme"));
 
     const { logout } = useAuthentication();
     const { user } = useAuthValue();
@@ -17,21 +17,33 @@ const Navbar = ({ themeState }) => {
         }
     };
 
-    const handleOnClick = () => {
-        setTheme(!theme);
-        themeState({ theme });
+    const handleButtonTheme = () => {
+        if (localStorage.getItem("Theme") == "Light") {
+            localStorage.setItem("Theme", "Dark");
+            setTheme(localStorage.getItem("Theme"));
+        } else {
+            localStorage.setItem("Theme", "Light");
+            setTheme(localStorage.getItem("Theme"));
+        }
+
+        props.onThemeChange(localStorage.getItem("Theme"));
     };
 
+    useEffect(() => {
+        if (!localStorage.getItem("Theme")) {
+            localStorage.setItem("Theme", "Light");
+        }
+    }, []);
 
     return (
-        <nav className={theme ? styles.navbar_dark : styles.navbar}>
+        <nav className={theme === "Dark" ? styles.navbar_dark : styles.navbar}>
             <div className={styles.container}>
                 <NavLink className={styles.brand} to={"/"}>
                     Mini<span>Blog</span>
                 </NavLink>
                 <ul className={styles.list_links}>
                     <li>
-                        <input type="checkbox" onClick={handleOnClick} />
+                        <button onClick={handleButtonTheme}>Mode</button>
                     </li>
                     {!user && (
                         <li>

@@ -1,10 +1,18 @@
 .box_about {
     margin: 2.2em auto;
-    color: #fefefe;
 }
 
-.box_about h2 {
-    color: var(--color-primary)
+.box_about h1 {
+    color: var(--color-primary);
+}
+
+.box_about p {
+    margin: auto;
+    text-align: justify;
+    width: 700px;
+    line-height: 30px;
+    margin-bottom: 20px;
+
 }
 
 .banner {

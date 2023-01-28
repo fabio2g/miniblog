@@ -15,10 +15,11 @@ import { AuthProvider } from "./context/AuthContext";
 import Post from "./pages/Post/Post";
 import Search from "./pages/Search/Search";
 import EditPost from "./pages/EditPost/EditPost";
+import { ThemeProvider } from "./context/ThemeContext";
 
 function App() {
     const [user, setUser] = useState(undefined);
-    const [theme, setTheme] = useState(true);
+    const [theme, setTheme] = useState(localStorage.getItem("Theme"));
 
     const { auth } = useAuthentication();
 
@@ -34,10 +35,6 @@ function App() {
         });
     }, [auth]);
 
-    const handleTheme = ({ theme }) => {
-        setTheme(theme);
-    };
-
     if (loadingUser) {
         return (
             <div className="box_loader">
@@ -46,66 +43,83 @@ function App() {
         );
     }
 
+    const handleThemeChange = (theme) => {
+        setTheme(localStorage.getItem("Theme"));
+    };
+
     return (
-        <div className={theme ? "App" : "App dark"}>
+        <div className={theme === "Light" ? "App" : "App dark"}>
             <AuthProvider value={{ user }}>
-                <BrowserRouter>
-                    <Navbar themeState={handleTheme} />
-                    <div className="container">
-                        <Routes>
-                            <Route path="/" element={<Home theme={theme} />} />
-                            <Route
-                                path="/search"
-                                element={<Search theme={theme} />}
-                            />
-                            <Route path="/post/:id" element={<Post />} />
-                            <Route path="/about" element={<About />} />
-                            <Route
-                                path="/post/create"
-                                element={
-                                    user ? (
-                                        <CreatePost />
-                                    ) : (
-                                        <Navigate to={"/login"} />
-                                    )
-                                }
-                            />
-                            <Route
-                                path="/post/edit/:id"
-                                element={
-                                    user ? (
-                                        <EditPost />
-                                    ) : (
-                                        <Navigate to={"/login"} />
-                                    )
-                                }
-                            />
-                            <Route
-                                path="/login"
-                                element={
-                                    !user ? <Login /> : <Navigate to={"/"} />
-                                }
-                            />
-                            <Route
-                                path="/login/register"
-                                element={
-                                    !user ? <Register /> : <Navigate to={"/"} />
-                                }
-                            />
-                            <Route
-                                path="/dashboard"
-                                element={
-                                    user ? (
-                                        <Dashboard />
-                                    ) : (
-                                        <Navigate to={"/login"} />
-                                    )
-                                }
-                            />
-                        </Routes>
-                    </div>
-                    <Footer theme={theme} />
-                </BrowserRouter>
+                <ThemeProvider value={theme}>
+                    <BrowserRouter>
+                        <Navbar onThemeChange={handleThemeChange} />
+                        <div className="container">
+                            <Routes>
+                                <Route
+                                    path="/"
+                                    element={<Home theme={theme} />}
+                                />
+                                <Route
+                                    path="/search"
+                                    element={<Search theme={theme} />}
+                                />
+                                <Route path="/post/:id" element={<Post />} />
+                                <Route path="/about" element={<About />} />
+                                <Route
+                                    path="/post/create"
+                                    element={
+                                        user ? (
+                                            <CreatePost />
+                                        ) : (
+                                            <Navigate to={"/login"} />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path="/post/edit/:id"
+                                    element={
+                                        user ? (
+                                            <EditPost />
+                                        ) : (
+                                            <Navigate to={"/login"} />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path="/login"
+                                    element={
+                                        !user ? (
+                                            <Login />
+                                        ) : (
+                                            <Navigate to={"/"} />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path="/login/register"
+                                    element={
+                                        !user ? (
+                                            <Register />
+                                        ) : (
+                                            <Navigate to={"/"} />
+                                        )
+                                    }
+                                />
+                                <Route
+                                    path="/dashboard"
+                                    element={
+                                        user ? (
+                                            <Dashboard />
+                                        ) : (
+                                            <Navigate to={"/login"} />
+                                        )
+                                    }
+                                />
+                            </Routes>
+                        </div>
+                        <Footer theme={theme} />
+                    </BrowserRouter>
+                </ThemeProvider>
             </AuthProvider>
         </div>
     );

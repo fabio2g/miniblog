@@ -1,18 +1,23 @@
+
 import styles from "./About.module.css";
 
 const About = () => {
+    
+
     return (
         <div className={styles.box_about}>
-            <h2>
+            <h1>
                 Sobre o Mini<span>Blog</span>
-            </h2>
+            </h1>
             <p>
-                Este projeto consiste em um blog feito com React no front-end e
-                Firebase no back-end.
+                O projeto MiniBlog é um sistema de blog desenvolvido para
+                publicar artigos sobre tecnologia sem fins lucrativos.
             </p>
             <p>
-                O propósito do blog é o compartilhamento de conhecimento sobre
-                tecnologia e afins.
+                Ele foi construído utilizando a biblioteca de JavaScript React
+                para o front-end e o Firebase como banco de dados. O objetivo do
+                projeto é permitir que os usuários publiquem e compartilhem seus
+                conhecimentos e experiências na área de tecnologia.
             </p>
 
             <img

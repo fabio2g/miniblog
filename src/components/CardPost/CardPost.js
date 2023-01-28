@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./CardPost.module.css";
 
-const CardPost = ({ post, theme }) => {
+const CardPost = ({ post }) => {
+    const theme = useContext(ThemeContext);
+
+    console.log("card", theme);
+
     const formatDatePost = () => {
         // const datePost = new Date(post.createAt.seconds * 1000)
         //     .toLocaleString()
@@ -38,7 +44,9 @@ const CardPost = ({ post, theme }) => {
 
     return (
         <div
-            className={theme ? styles.box_card : styles.box_card_dark}
+            className={
+                theme === "Dark" ? styles.box_card_dark : styles.box_card
+            }
             key={post.id}
         >
             <img src={post.image} alt={post.title} />
