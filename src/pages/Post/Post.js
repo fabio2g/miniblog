@@ -1,8 +1,12 @@
 import styles from "./Post.module.css";
 import { Link, useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Post = () => {
+    const [content, setContent] = useState("");
+
     const { id: postId } = useParams();
 
     const {
@@ -10,6 +14,21 @@ const Post = () => {
         loading,
         error,
     } = useFetchDocument("posts", postId);
+
+    function formatText(text) {
+        if (typeof text === "string") {
+            const formattedText = text.replace(/\n\n/g, "<br><br>");
+            return { __html: formattedText };
+        } else {
+            return { __html: "" };
+        }
+    }
+
+    useEffect(() => {
+        setContent(post.body);
+
+        console.log(content)
+    }, [post.body, content]);
 
     return (
         <div className={styles.box_post}>
@@ -22,7 +41,7 @@ const Post = () => {
                     <img src={post.image} alt={post.title} />
                     <h1>{post.title}</h1>
                     <small>Postado por {post.createdBy} em ...</small>
-                    <p>{post.body}</p>
+                    <div dangerouslySetInnerHTML={formatText(content)} />
                     <div>
                         {post.tagsArray &&
                             post.tagsArray.map((tag) => (

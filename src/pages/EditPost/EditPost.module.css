@@ -1,0 +1,20 @@
+.loading {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_editPost {
+    width: 650px;
+    margin: auto;
+    background: red;
+}
+
+.box_editPost form {
+    margin-top: 2em;
+}
+
+form button {
+    margin-bottom: 1.5em;
+}

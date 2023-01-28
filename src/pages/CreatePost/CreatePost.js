@@ -42,7 +42,7 @@ const CreatePost = () => {
             createdBy: user.displayName,
         });
 
-        navegate("/")
+        navegate("/");
     };
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./EditPost.module.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,57 +33,63 @@ const EditPost = () => {
     console.log("edit", post);
 
     return (
-        <div>
-            <form className="form" onSubmit={handleSubmit}>
-                <label>
-                    <span>Título:</span>
-                    <input
-                        type="text"
-                        name="title"
-                        required
-                        placeholder="Pense em um bom título"
-                        onChange={(e) => setTitle(e.target.value)}
-                        value={title}
-                    />
-                </label>
-                <label>
-                    <span>URL da imagem:</span>
-                    <input
-                        type="text"
-                        placeholder="Insira uma imagem que represente o seu post"
-                        required
-                        onChange={(e) => setImage(e.target.value)}
-                        value={image}
-                    />
-                </label>
-                <label>
-                    <span>Conteúdo:</span>
-                    <textarea
-                        name="body"
-                        placeholder="Insira o conteúdo do post"
-                        required
-                        onChange={(e) => setBody(e.target.value)}
-                        value={body}
-                    ></textarea>
-                </label>
-                <label>
-                    <span>Tags:</span>
-                    <input
-                        type="text"
-                        placeholder="Insira as tags separadas por vígula"
-                        required
-                        onChange={(e) => setTags(e.target.value)}
-                        value={tags}
-                    />
-                </label>
-                {loading ? (
-                    <button className="btn_success btn_disabled" disabled>
-                        Aguarde...
-                    </button>
-                ) : (
-                    <button className="btn_success">Postar</button>
-                )}
-            </form>
+        <div className={styles.box_editPost}>
+            {loading ? (
+                <div className={styles.loading}>
+                    <div className="loader"></div>
+                </div>
+            ) : (
+                <form className="form" onSubmit={handleSubmit}>
+                    <label>
+                        <span>Título:</span>
+                        <input
+                            type="text"
+                            name="title"
+                            required
+                            placeholder="Pense em um bom título"
+                            onChange={(e) => setTitle(e.target.value)}
+                            value={title}
+                        />
+                    </label>
+                    <label>
+                        <span>URL da imagem:</span>
+                        <input
+                            type="text"
+                            placeholder="Insira uma imagem que represente o seu post"
+                            required
+                            onChange={(e) => setImage(e.target.value)}
+                            value={image}
+                        />
+                    </label>
+                    <label>
+                        <span>Conteúdo:</span>
+                        <textarea
+                            name="body"
+                            placeholder="Insira o conteúdo do post"
+                            required
+                            onChange={(e) => setBody(e.target.value)}
+                            value={body}
+                        ></textarea>
+                    </label>
+                    <label>
+                        <span>Tags:</span>
+                        <input
+                            type="text"
+                            placeholder="Insira as tags separadas por vígula"
+                            required
+                            onChange={(e) => setTags(e.target.value)}
+                            value={tags}
+                        />
+                    </label>
+                    {loading ? (
+                        <button className="btn_success btn_disabled" disabled>
+                            Aguarde...
+                        </button>
+                    ) : (
+                        <button className="btn_success">Postar</button>
+                    )}
+                </form>
+            )}
         </div>
     );
 };
