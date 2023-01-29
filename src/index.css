@@ -10,8 +10,7 @@ body {
     margin: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
-    background: #f5f5f5;
-
+    background: #ffff;
 }
 
 /* scroll */
@@ -31,6 +30,7 @@ body::-webkit-scrollbar-thumb {
 
 h1 {
     color: var(--color-primary);
+    font-size: 43px;
 }
 
 /* Navbar */
@@ -40,27 +40,30 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #000;
 }
 
 /* Form */
+
 .form {
     display: flex;
     flex-direction: column;
-    gap: 1.4em;
+    gap: 3em;
+    border-radius: 8px;
+    padding: 30px;
 }
 
 .form label {
     display: flex;
     flex-direction: column;
     text-align: left;
+    padding: 4px;
 }
 
 .form label span {
     font-weight: bold;
-    font-size: 17px;
+    font-size: 20px;
     color: var(--color-primary);
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .form label input,
@@ -68,15 +71,17 @@ nav a {
     font-family: "Montserrat", sans-serif;
     background: transparent;
     color: #777;
-    padding: 12px 0;
+    padding: 14px 0;
     border: none;
     border-bottom: 1px solid #999;
     outline: none;
-    font-size: 16px;
+    font-size: 18px;
     margin: 10px 0;
 }
 
 .form label textarea {
+    max-width: 96%;
+    
     border: 1px solid #999;
     padding: 12px;
 }
@@ -93,8 +98,10 @@ nav a {
     border: none;
     border-radius: 30px;
     outline: none;
-    padding: 12px 0;
-    font-size: 17px;
+    padding: 16px 0;
+    font-size: 19px;
+    font-weight: 600;
+    /* letter-spacing: 1px; */
     background: var(--color-primary);
     color: #fff;
     cursor: pointer;
@@ -163,7 +170,6 @@ nav a {
     justify-content: center;
     align-items: center;
 }
-
 
 .container_posts {
     margin: 4em auto;

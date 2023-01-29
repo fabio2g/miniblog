@@ -7,8 +7,6 @@ import styles from "./CardPost.module.css";
 const CardPost = ({ post }) => {
     const theme = useContext(ThemeContext);
 
-    console.log("card", theme);
-
     const formatDatePost = () => {
         // const datePost = new Date(post.createAt.seconds * 1000)
         //     .toLocaleString()
@@ -42,28 +40,45 @@ const CardPost = ({ post }) => {
         return dateFormated;
     };
 
+    const formatedBody = () => {
+        let description = post.body;
+
+        if (description.length > 100) {
+            description = description.substring(0, 100) + "...";
+        }
+
+        console.log(description);
+        return description;
+    };
+
     return (
         <div
-            className={
-                theme === "Dark" ? styles.box_card_dark : styles.box_card
-            }
+            className={theme === "Dark" ? styles.cardDark : styles.card}
             key={post.id}
         >
             <img src={post.image} alt={post.title} />
             <div className={styles.content}>
-                <h2>{post.title}</h2>
                 <small>
                     Postado por {post.createdBy} em {formatDatePost()}
                 </small>
-                <div className={styles.tags}>
+                <div className={styles.title}>
+                    <h2>{post.title}</h2>
+                </div>
+                <div className={styles.body}>
+                    <p>{formatedBody()}</p>
+                </div>
+
+                {/* <div className={styles.tags}>
                     {post.tagsArray &&
                         post.tagsArray.map((tag) => (
                             <span key={tag}>{tag}</span>
                         ))}
-                </div>
+                </div> */}
 
                 <Link to={`/post/${post.id}`}>
-                    <button className="btn_success">Ver mais</button>
+                    <button className={styles.plus}>
+                        <i className="fa-solid fa-plus"></i>
+                    </button>
                 </Link>
             </div>
         </div>

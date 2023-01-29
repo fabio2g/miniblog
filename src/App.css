@@ -4,7 +4,7 @@
 
 .dark {
     transition: 0.3s;
-    background: #212121;
+    background: #1f2028;
     color: #ccc;
 }
 
@@ -12,6 +12,14 @@
     max-width: 1200px;
     min-height: 60vh;
     margin: auto;
+}
+
+.App form {
+    background: #f7f7f7;
+}
+
+.dark form {
+    background: #242531;
 }
 
 @media (max-width: 600px) {

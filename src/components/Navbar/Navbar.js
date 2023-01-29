@@ -36,32 +36,30 @@ const Navbar = (props) => {
     }, []);
 
     return (
-        <nav className={theme === "Dark" ? styles.navbar_dark : styles.navbar}>
+        <nav className={theme === "Dark" ? styles.navbarDark : styles.navbar}>
             <div className={styles.container}>
                 <NavLink className={styles.brand} to={"/"}>
                     Mini<span>Blog</span>
                 </NavLink>
-                <ul className={styles.list_links}>
-                    <li>
-                        <button onClick={handleButtonTheme}>Mode</button>
-                    </li>
+                <ul className={styles.links}>
                     {!user && (
                         <li>
                             <NavLink to={"/login"}>Entrar</NavLink>
                         </li>
                     )}
                     <li>
-                        <NavLink to={"/"}>Home</NavLink>
+                        <NavLink to={"/"}>Inicio</NavLink>
                     </li>
                     <li>
-                        <NavLink to={"/post/create"}>Novo post</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/about"}>Sobre</NavLink>
+                        <NavLink to={"/post/create"}>Postar</NavLink>
                     </li>
                     <li>
                         <NavLink to={"/dashboard"}>Dashboard</NavLink>
                     </li>
+                    <li>
+                        <NavLink to={"/about"}>Sobre</NavLink>
+                    </li>
+
                     {user && (
                         <li>
                             <NavLink to={"#"} onClick={handleButtonClose}>
@@ -69,6 +67,9 @@ const Navbar = (props) => {
                             </NavLink>
                         </li>
                     )}
+                    <li className={styles.themeMode}>
+                        <button onClick={handleButtonTheme}>Mode</button>
+                    </li>
                 </ul>
             </div>
         </nav>

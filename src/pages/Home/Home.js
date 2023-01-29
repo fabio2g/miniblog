@@ -18,7 +18,7 @@ const Home = ({ theme }) => {
     };
 
     return (
-        <div className={styles.box_home}>
+        <div className={styles.container}>
             {loading && (
                 <div className={"loading"}>
                     <div className="loader"></div>
@@ -40,7 +40,7 @@ const Home = ({ theme }) => {
                     </form>
                 </>
             )}
-            <div className={"container_posts"}>
+            <div className={styles.posts}>
                 {posts &&
                     posts.map((post) => (
                         <CardPost key={post.id} post={post} theme={theme} />

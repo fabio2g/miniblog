@@ -38,8 +38,8 @@ const Post = () => {
                 </div>
             ) : (
                 <>
-                    <img src={post.image} alt={post.title} />
                     <h1>{post.title}</h1>
+                    <img src={post.image} alt={post.title} />
                     <small>Postado por {post.createdBy} em ...</small>
                     <div className={styles.content_body} dangerouslySetInnerHTML={formatText(content)} />
                     <div>

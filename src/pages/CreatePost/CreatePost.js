@@ -50,7 +50,7 @@ const CreatePost = () => {
     }, [errorInsert]);
 
     return (
-        <div className={styles.box_createPost}>
+        <div className={styles.container}>
             <h1>Criar post</h1>
             <p>Escreva sobre seus interesse e compartilhe seu conhecimeto!</p>
             <form className="form" onSubmit={handleSubmit}>
@@ -76,6 +76,12 @@ const CreatePost = () => {
                     />
                 </label>
                 <label>
+                    <span>Preview da imagem:</span>
+                    <div className={styles.preview}>
+                        <img src={image} alt={title} />
+                    </div>
+                </label>
+                <label>
                     <span>Conteúdo:</span>
                     <textarea
                         name="body"
@@ -95,13 +101,15 @@ const CreatePost = () => {
                         value={tags}
                     />
                 </label>
-                {loading ? (
-                    <button className="btn_success btn_disabled" disabled>
-                        Aguarde...
-                    </button>
-                ) : (
-                    <button className="btn_success">Postar</button>
-                )}
+                <label>
+                    {loading ? (
+                        <button className="btn_success btn_disabled" disabled>
+                            Aguarde...
+                        </button>
+                    ) : (
+                        <button className="btn_success">Postar</button>
+                    )}
+                </label>
             </form>
             {error && (
                 <div className="alert">

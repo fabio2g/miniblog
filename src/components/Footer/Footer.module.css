@@ -9,6 +9,7 @@
 }
 
 .footer {
+    margin-top: 6em;
     background: var(--color-primary);
 }
 
