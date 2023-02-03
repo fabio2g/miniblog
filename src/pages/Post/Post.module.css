@@ -7,7 +7,7 @@
 .box_post img {
     width: 100%;
     max-width: 100%;
-    max-height: 380px;
+    max-height: 400px;
     object-fit: cover;
     border-radius: 8px;
 }

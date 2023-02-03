@@ -8,6 +8,7 @@
 
 body {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     background: #ffff;
@@ -28,8 +29,13 @@ body::-webkit-scrollbar-thumb {
     border: 3px solid #ccc;
 }
 
+h1,
+h2,
+h3 {
+    color: #2a2a2a;
+}
+
 h1 {
-    color: var(--color-primary);
     font-size: 43px;
 }
 
@@ -81,7 +87,7 @@ nav a {
 
 .form label textarea {
     max-width: 96%;
-    
+
     border: 1px solid #999;
     padding: 12px;
 }

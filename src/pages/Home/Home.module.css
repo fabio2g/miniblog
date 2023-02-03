@@ -15,13 +15,13 @@ button {
 .container .search {
     box-sizing: border-box;
     max-width: 450px;
-    margin: 4em auto 0 auto;
+    margin: 5em auto 0 auto;
     background: #fefefe;
     outline: 1px solid #666;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 8px 14px;
+    padding: 7px 14px;
     border-radius: 30px;
 }
 

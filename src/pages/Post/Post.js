@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useUrlActive } from "../../hooks/useUrlActive";
 
 const Post = () => {
     const [content, setContent] = useState("");
@@ -27,7 +28,7 @@ const Post = () => {
     useEffect(() => {
         setContent(post.body);
 
-        console.log(content)
+        console.log(content);
     }, [post.body, content]);
 
     return (
@@ -38,10 +39,13 @@ const Post = () => {
                 </div>
             ) : (
                 <>
-                    <h1>{post.title}</h1>
                     <img src={post.image} alt={post.title} />
+                    <h1>{post.title}</h1>
                     <small>Postado por {post.createdBy} em ...</small>
-                    <div className={styles.content_body} dangerouslySetInnerHTML={formatText(content)} />
+                    <div
+                        className={styles.content_body}
+                        dangerouslySetInnerHTML={formatText(content)}
+                    />
                     <div>
                         {post.tagsArray &&
                             post.tagsArray.map((tag) => (

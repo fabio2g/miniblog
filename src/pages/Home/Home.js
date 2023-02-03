@@ -26,7 +26,7 @@ const Home = ({ theme }) => {
             )}
             {!loading && (
                 <>
-                    <h1>Veja os posts mais recentes</h1>
+                    {/* <h1>Veja os posts mais recentes</h1> */}
                     <form onSubmit={handleSubmit} className={styles.search}>
                         <button>
                             <i className="fa-solid fa-magnifying-glass"></i>
