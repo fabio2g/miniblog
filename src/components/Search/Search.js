@@ -1,13 +1,21 @@
-import React from "react";
+import { useContext } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
+import styles from "./Search.module.css";
 
 const Search = () => {
     const [search, setSearch] = useState("");
+
+    const theme = useContext(ThemeContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (search) return navegate(`/search?query=${search}`);
     };
+
+    let navegate = useNavigate();
 
     return (
         <div>

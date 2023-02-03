@@ -1,0 +1,40 @@
+input,
+button {
+    margin: 0 !important;
+}
+
+.search {
+    box-sizing: border-box;
+    max-width: 450px;
+    margin: 5em auto 0 auto;
+    background: #fefefe;
+    outline: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 14px;
+    border-radius: 30px;
+}
+
+.search input {
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: 100%;
+    margin-left: 8px !important;
+    margin-right: 8px !important;
+    background: transparent;
+}
+
+.search button {
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.search i {
+    color: #666;
+}
