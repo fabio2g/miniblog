@@ -1,9 +1,17 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./Footer.module.css";
 
-const Footer = ({ theme }) => {
+const Footer = () => {
+    const theme = useContext(ThemeContext);
+
+    console.log(theme);
+
     return (
-        <footer className={theme ? styles.footer : styles.footer_dark}>
+        <footer
+            className={theme === "Light" ? styles.footer : styles.footer_dark}
+        >
             <h3>Compartilhe o seu conhecimento em tecnologia aqui!</h3>
             <p>Mini Blog &copy; 2022</p>
             <div className={styles.social_media}>

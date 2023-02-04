@@ -1,14 +1,10 @@
 import { useContext } from "react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
-import { useUrlActive } from "../../hooks/useUrlActive";
 import styles from "./CardPost.module.css";
 
 const CardPost = ({ post }) => {
     const theme = useContext(ThemeContext);
-
-    const { url, isActive } = useUrlActive();
 
     const formatDatePost = () => {
         // const datePost = new Date(post.createAt.seconds * 1000)
@@ -50,7 +46,6 @@ const CardPost = ({ post }) => {
             description = description.substring(0, 100) + "[...]";
         }
 
-        console.log(description);
         return description;
     };
 

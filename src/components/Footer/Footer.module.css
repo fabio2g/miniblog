@@ -5,12 +5,25 @@
     justify-content: center;
     align-items: center;
     height: 40vh;
-    color: #000;
+    color: #fff;
+    margin-top: 6em;
+}
+
+.footer h3 {
+    color: #fff;
 }
 
 .footer {
-    margin-top: 6em;
-    border-top: 1px solid #aeaeae;
+    background: #1a1a1a;
+}
+
+.footer_dark {
+    border-top: 1px solid #3f3f3f;
+    background: #1f2028;
+}
+
+.footer_dark h3 {
+    color: #fefefe;
 }
 
 .social_media {
