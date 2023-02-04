@@ -3,14 +3,12 @@
 }
 
 .dark {
-    transition: 0.3s;
     background: #1f2028;
     color: #ccc;
 }
 
 .dark h1,
-h2,
-h3 {
+h2 {
     color: var(--color-primary);
 }
 

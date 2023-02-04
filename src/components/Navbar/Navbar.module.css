@@ -54,6 +54,31 @@
     margin-left: 60px;
 }
 
+.themeMode button {
+    background: transparent;
+    outline: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 3px 3px 8px #c5c5c5, -3px -3px 12px #ffffff;
+}
+
+.themeMode button i {
+    font-size: 22px;
+}
+
+.themeMode button .iconSun i {
+    /* color: #454545; */
+    color: #a4a4a4;
+}
+
+.themeMode button .iconMoon {
+    color: #a8acc0;
+}
+
 @media (max-width: 600px) {
     .container .links {
         display: none;

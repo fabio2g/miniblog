@@ -7,13 +7,17 @@ p {
     line-height: 32px;
 }
 
+.card {
+    background: #F4F4F4;
+}
+
 .card,
 .cardDark {
     display: flex;
     flex-direction: row;
     width: 900px;
-    height: 200px;
-    border-radius: 8px;
+    height: 240px;
+    border-radius: 30px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -51,10 +55,11 @@ p {
 
 .card .image,
 .cardDark .image {
-    width: 400px;
-    max-width: 400px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    width: 450px;
+    max-width: 450px;
+    /* border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px; */
+    padding: 20px;
 }
 
 .card .image img,
@@ -62,8 +67,9 @@ p {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
+    border-radius: 20px;
+    /* border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit; */
 }
 
 .card .content small {

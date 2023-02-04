@@ -18,7 +18,7 @@ const Navbar = (props) => {
     };
 
     const handleButtonTheme = () => {
-        if (localStorage.getItem("Theme") == "Light") {
+        if (localStorage.getItem("Theme") === "Light") {
             localStorage.setItem("Theme", "Dark");
             setTheme(localStorage.getItem("Theme"));
         } else {
@@ -68,7 +68,18 @@ const Navbar = (props) => {
                         </li>
                     )}
                     <li className={styles.themeMode}>
-                        <button onClick={handleButtonTheme}>Mode</button>
+                        <button onClick={handleButtonTheme}>
+                            {theme === "Dark" ? (
+                                <span className={styles.iconMoon}>
+                                    <i className="fa-regular fa-moon"></i>
+                                </span>
+                            ) : (
+                                <span className={styles.iconSun}>
+                                    <i className="fa-regular fa-sun"></i>
+                                    {/* <i class="fa-solid fa-sun"></i> */}
+                                </span>
+                            )}
+                        </button>
                     </li>
                 </ul>
             </div>

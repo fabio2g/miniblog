@@ -24,7 +24,7 @@ const Search = () => {
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <input
-                    type="search"
+                    type="text"
                     name="search"
                     placeholder="Pesquise postagens por palavra chave..."
                     onChange={(e) => setSearch(e.target.value)}
