@@ -3,16 +3,22 @@ button {
     margin: 0 !important;
 }
 
-.container {
+.main {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.content {
+    display: block;
     width: 1200px;
     max-width: 100%;
 }
 
-.container h1 {
+.content h1 {
     margin: 2em 0;
 }
 
-.container .posts {
+.content .posts {
     margin-top: 6em;
     display: flex;
     flex-wrap: wrap;
@@ -20,22 +26,24 @@ button {
     gap: 50px;
 }
 
+
+
 @media (max-width: 600px) {
-    .container h1 {
+    .content h1 {
         font-size: 30px;
         margin: 0 10px;
     }
 
-    .container .search {
+    .content .search {
         width: 90%;
         padding: 2px 8px;
     }
 
-    .container .search input {
+    .content .search input {
         font-size: 14px;
     }
 
-    .container .search button {
+    .content .search button {
         font-size: 14px;
     }
 }

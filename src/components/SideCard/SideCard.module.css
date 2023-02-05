@@ -1,0 +1,8 @@
+.container {
+    width: 240px;
+    max-width: 240px;
+    height: 200px;
+    background: tomato;
+    border-radius: 20px;
+    margin-top: 2em;
+}
