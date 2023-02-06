@@ -9,7 +9,8 @@ const SideBar = () => {
     return (
         <div className={styles.sideBar}>
             <Search />
-            <SideCard post={post} />
+            {post && <SideCard post={post} />}
+            {post && <SideCard post={post} />}
         </div>
     );
 };

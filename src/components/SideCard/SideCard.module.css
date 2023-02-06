@@ -1,8 +1,24 @@
 .container {
+    display: flex;
     width: 240px;
     max-width: 240px;
-    height: 200px;
-    background: tomato;
-    border-radius: 20px;
+    /* background: tomato; */
     margin-top: 2em;
+}
+
+.container img {
+    width: 80px;
+    height: 100%;
+}
+
+.container .content {
+    text-align: left;
+}
+
+.container .content p {
+    margin: 0;
+    margin-left: 6px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: normal;
 }
