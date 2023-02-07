@@ -6,8 +6,6 @@ import styles from "./Footer.module.css";
 const Footer = () => {
     const theme = useContext(ThemeContext);
 
-    console.log(theme);
-
     return (
         <footer
             className={theme === "Light" ? styles.footer : styles.footer_dark}

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../../context/ThemeContext";
+import InteractionBar from "../InteractionBar/InteractionBar";
 import styles from "./CardPost.module.css";
 
 const CardPost = ({ post }) => {
@@ -42,39 +43,32 @@ const CardPost = ({ post }) => {
     const formatedBody = () => {
         let description = post.body;
 
-        if (description.length > 100) {
-            description = description.substring(0, 100) + "[...]";
+        if (description.length > 200) {
+            description = description.substring(0, 200) + "[...]";
         }
 
         return description;
     };
 
     return (
-        <Link to={`/post/${post.id}`}>
-            <div
-                className={theme === "Dark" ? styles.cardDark : styles.card}
-                key={post.id}
-            >
-                <div className={styles.image}>
-                    <img src={post.image} alt={post.title} />
-                </div>
-                <div className={styles.content}>
-                    <h2>{post.title}</h2>
-
-                    <p>{formatedBody()}</p>
-                    <small>
-                        Postado por {post.createdBy} em {formatDatePost()}
-                    </small>
-
-                    {/* <div className={styles.tags}>
-                    {post.tagsArray &&
-                        post.tagsArray.map((tag) => (
-                            <span key={tag}>{tag}</span>
-                        ))}
-                </div> */}
-                </div>
+        // <Link to={`/post/${post.id}`}>
+        <div
+            className={theme === "Dark" ? styles.cardDark : styles.card}
+            key={post.id}
+        >
+            <div className={styles.image}>
+                <img src={post.image} alt={post.title} />
             </div>
-        </Link>
+            <div className={styles.content}>
+                <div className={styles.title}>
+                    <h2>{post.title}</h2>
+                </div>
+                <div className={styles.body}>
+                    <p>{formatedBody()}</p>
+                </div>
+                <InteractionBar post={post} />
+            </div>
+        </div>
     );
 };
 

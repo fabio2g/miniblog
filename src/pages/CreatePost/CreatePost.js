@@ -40,6 +40,8 @@ const CreatePost = () => {
             tagsArray,
             user: user.uid,
             createdBy: user.displayName,
+            like: 0,
+            view: 0,
         });
 
         navegate("/");
