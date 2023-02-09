@@ -5,6 +5,8 @@ import { useFetchDocument } from "./useFetchDocument";
 export const useUpdateDocument = (collection, id) => {
     const { document: post } = useFetchDocument("posts", id);
 
+    console.log("id post", id);
+
     const updateLike = async (data) => {
         if (!id || !data) return;
         try {
@@ -12,7 +14,7 @@ export const useUpdateDocument = (collection, id) => {
             likesPost.push(data);
 
             const json = JSON.stringify(likesPost);
-        
+
             const docRef = await doc(db, collection, id);
 
             await updateDoc(docRef, {

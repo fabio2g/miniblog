@@ -31,7 +31,7 @@ const InteractionBar = ({ post }) => {
     useEffect(() => {
         const idUser = totalLike.map((e) => e.uid);
 
-        return () => setUserliked(true);
+        if (idUser.includes(user.uid)) return () => setUserliked(true);
     }, []);
 
     return (
