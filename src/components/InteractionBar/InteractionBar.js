@@ -1,40 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 import styles from "./InteractionBar.module.css";
 
 const InteractionBar = ({ post }) => {
-    const [like, setLike] = useState(false);
-    const [userLike, setUserLike] = useState([]);
+    const [likePost, setlikePost] = useState();
+    const [userLiked, setUserliked] = useState(false);
 
     const { user } = useAuthValue();
-    // const { document } = useFetchDocument("post", post.id);
+    const { updateLike } = useUpdateDocument("posts", post.id);
 
-    const handleOnClickLike = () => {
-        setUserLike({
+    const totalLike = JSON.parse(post.like);
+
+    const handleOnClicklikePost = () => {
+        setlikePost({
             uid: user.uid,
             name: user.displayName,
         });
-        console.log(userLike.length);
 
-
-        
-        // console.log("Like", { userId: user.uid, name: user.displayName });
+        setUserliked(true);
     };
+
+    // Atualiza like
+    useEffect(() => {
+        updateLike(likePost);
+    }, [likePost]);
+
+    // Verifica se usuário deu like
+    useEffect(() => {
+        const idUser = totalLike.map((e) => e.uid);
+
+        return () => setUserliked(true);
+    }, []);
 
     return (
         <div className={styles.container}>
-            <div className={styles.like}>
-                {like ? (
+            <div className={styles.likePost}>
+                {userLiked ? (
                     <i className="fa-solid fa-heart">
-                        <span>{post.like}</span>
+                        <span>{totalLike.length}</span>
                     </i>
                 ) : (
                     <i
                         className="fa-regular fa-heart"
-                        onClick={handleOnClickLike}
+                        onClick={handleOnClicklikePost}
                     >
-                        <span>{post.like}</span>
+                        <span>{totalLike.length}</span>
                     </i>
                 )}
             </div>

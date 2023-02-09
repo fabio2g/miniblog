@@ -40,7 +40,7 @@ const CreatePost = () => {
             tagsArray,
             user: user.uid,
             createdBy: user.displayName,
-            like: 0,
+            like: JSON.stringify([]),
             view: 0,
         });
 
