@@ -9,6 +9,10 @@
     font-size: 14px;
 }
 
+.like i {
+    cursor: pointer;
+}
+
 .view {
     margin-left: 10px;
 }
@@ -16,5 +20,5 @@
 .like span,
 .view span {
     font-size: 12px;
-    margin-left: 4px;
+    margin-left: 5px;
 }

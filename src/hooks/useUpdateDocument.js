@@ -5,11 +5,16 @@ import { useFetchDocument } from "./useFetchDocument";
 export const useUpdateDocument = (collection, id) => {
     const { document: post } = useFetchDocument("posts", id);
 
-    const updateLike = async (data) => {
-        if (!id || !data) return;
+    /**
+     * Atualiza o campo "like" do banco com o registro do usuário que curtiu.
+     * @param {object} userData
+     * @returns
+     */
+    const updateLike = async (userData) => {
+        if (!id || !userData) return;
         try {
             const likesPost = JSON.parse(post.like);
-            likesPost.push(data);
+            likesPost.push(userData);
 
             const json = JSON.stringify(likesPost);
             const docRef = doc(db, collection, id);
@@ -22,6 +27,9 @@ export const useUpdateDocument = (collection, id) => {
         }
     };
 
+    /**
+     * Atualiza o campo "view" do banco com uma novo registro de view.
+     */
     const updateView = async () => {
         const addView = post.view + 1;
 
