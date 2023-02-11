@@ -1,8 +1,11 @@
 import { db } from "../firebase/config";
 import { doc, updateDoc } from "firebase/firestore";
 import { useFetchDocument } from "./useFetchDocument";
+import { useState } from "react";
 
 export const useUpdateDocument = (collection, id) => {
+    const [error, setError] = useState("");
+
     const { document: post } = useFetchDocument("posts", id);
 
     /**
@@ -23,7 +26,8 @@ export const useUpdateDocument = (collection, id) => {
                 like: json,
             });
         } catch (error) {
-            console.log(error.message);
+            setError(error.message);
+            console.log("\x1b[31m%s\x1b[0m", "[App]", error.message);
         }
     };
 
@@ -31,13 +35,19 @@ export const useUpdateDocument = (collection, id) => {
      * Atualiza o campo "view" do banco com uma novo registro de view.
      */
     const updateView = async () => {
-        const addView = post.view + 1;
+        if (!post.view) return;
+        try {
+            const addView = post.view + 1;
 
-        const docRef = doc(db, collection, id);
-        await updateDoc(docRef, {
-            view: addView,
-        });
+            const docRef = doc(db, collection, id);
+            await updateDoc(docRef, {
+                view: addView,
+            });
+        } catch (error) {
+            setError(error.message);
+            console.log("\x1b[31m%s\x1b[0m", "[App]", error.message);
+        }
     };
 
-    return { updateLike, updateView };
+    return { updateLike, updateView, error };
 };

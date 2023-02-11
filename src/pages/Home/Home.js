@@ -1,7 +1,6 @@
 import styles from "./Home.module.css";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import CardPost from "../../components/CardPost/CardPost";
-import Search from "../../components/Search/Search";
 import SideBar from "../../components/SideBar/SideBar";
 
 const Home = ({ theme }) => {
