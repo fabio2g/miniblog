@@ -1,52 +1,68 @@
 import { useEffect, useState } from "react";
 import { useAuthValue } from "../../context/AuthContext";
-import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 import styles from "./InteractionBar.module.css";
 
 const InteractionBar = ({ post }) => {
-    const [likePost, setlikePost] = useState();
-    const [userLiked, setUserliked] = useState(false);
+    const [addLikePost, setAddLikePost] = useState({});
+    const [userLiked, setUserLiked] = useState(false);
 
     const { user } = useAuthValue();
     const { updateLike } = useUpdateDocument("posts", post.id);
 
-    const totalLike = JSON.parse(post.like);
+    const likeList = JSON.parse(post.like);
 
-    const handleOnClicklikePost = () => {
-        setlikePost({
+    /**
+     * Monta um objeto com as referências do usuário.
+     */
+    const handleOnClickLike = () => {
+        setAddLikePost({
             uid: user.uid,
             name: user.displayName,
         });
 
-        setUserliked(true);
+        setUserLiked(true);
     };
 
-    // Atualiza like
-    useEffect(() => {
-        updateLike(likePost);
-    }, [likePost]);
+    /**
+     * Verifica se o objeto está vazio.
+     * @param {} element
+     * @returns {boolean}
+     */
+    function isObjectEmpty(element) {
+        return Object.getOwnPropertyNames(element).length === 0;
+    }
 
-    // Verifica se usuário deu like
+    /**
+     * Registra a curtida do usuário.
+     */
     useEffect(() => {
-        const idUser = totalLike.map((e) => e.uid);
+        if (isObjectEmpty(addLikePost)) return;
+        updateLike(addLikePost);
+    }, [addLikePost, updateLike]);
 
-        if (idUser.includes(user.uid)) return () => setUserliked(true);
-    }, []);
+    /**
+     * Verifica se o usuário deu like no post corrente.
+     */
+    useEffect(() => {
+        if (!user) return;
+        const listIdUsers = likeList.map((user) => user.uid);
+        if (listIdUsers.includes(user.uid)) return () => setUserLiked(true);
+    }, [user, likeList]);
 
     return (
         <div className={styles.container}>
-            <div className={styles.likePost}>
+            <div className={styles.like}>
                 {userLiked ? (
                     <i className="fa-solid fa-heart">
-                        <span>{totalLike.length}</span>
+                        <span>{likeList.length}</span>
                     </i>
                 ) : (
                     <i
                         className="fa-regular fa-heart"
-                        onClick={handleOnClicklikePost}
+                        onClick={handleOnClickLike}
                     >
-                        <span>{totalLike.length}</span>
+                        <span>{likeList.length}</span>
                     </i>
                 )}
             </div>
@@ -60,3 +76,5 @@ const InteractionBar = ({ post }) => {
 };
 
 export default InteractionBar;
+
+// [{"uid":"PAwBJe6fCaV2LG9leNemQLzNvnF3","name":"Jonh"}]

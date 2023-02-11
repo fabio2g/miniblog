@@ -5,6 +5,10 @@ p {
     color: #2c2c2c;
 }
 
+a {
+    text-decoration: none;
+}
+
 .card {
     background: #ffff;
     box-shadow: rgba(78, 78, 78, 0.2) 0px 7px 29px 0px;

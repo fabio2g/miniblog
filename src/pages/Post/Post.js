@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useUrlActive } from "../../hooks/useUrlActive";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
 const Post = () => {
     const [content, setContent] = useState("");
@@ -16,6 +16,8 @@ const Post = () => {
         error,
     } = useFetchDocument("posts", postId);
 
+    const { updateView } = useUpdateDocument("posts", postId);
+
     function formatText(text) {
         if (typeof text === "string") {
             const formattedText = text.replace(/\n\n/g, "<br><br>");
@@ -27,12 +29,11 @@ const Post = () => {
 
     useEffect(() => {
         setContent(post.body);
-
-        console.log(content);
     }, [post.body, content]);
 
+
     return (
-        <div className={styles.box_post}>
+        <div className={styles.box_post} onLoad={updateView}>
             {loading ? (
                 <div className={styles.loading}>
                     <div className="loader"></div>
