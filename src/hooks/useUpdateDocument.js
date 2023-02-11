@@ -8,7 +8,7 @@ export const useUpdateDocument = (collection, id) => {
     /**
      * Atualiza o campo "like" do banco com o registro do usuário que curtiu.
      * @param {object} userData
-     * @returns
+     * @returns {void}
      */
     const updateLike = async (userData) => {
         if (!id || !userData) return;

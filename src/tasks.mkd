@@ -1,4 +1,4 @@
 <h2>Tasks</h2>
 
-- Adicionar uma segunda opção de imagem no card.
-- Implementar o recurso de recomendação de posts. 
+-   <input type="checkbox"> Adicionar uma segunda opção de imagem no card.
+-   <input type="checkbox"> Implementar o recurso de recomendação de posts.
