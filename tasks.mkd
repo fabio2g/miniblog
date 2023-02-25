@@ -1,15 +1,15 @@
 <h2>Tasks</h2>
 
 <h3>Card</h3>
-- Adicionar uma segunda opção de imagem no card.
+-   Adicionar uma segunda opção de imagem no card.
 
 <h3>SideBar</h3>
-- Implementar o recurso de recomendação de posts.
-- Estilizar a sidebar de recomendações.
-- Implementar recurso de pesquisa de posts.
+-   Implementar o recurso de recomendação de posts.
+-   Estilizar a sidebar de recomendações.
+-   Implementar recurso de pesquisa de posts.
 
 <h3>Sobre</h3>
-- Melhoras a descrição do blog.
+-   Melhoras a descrição do blog.
 
 <k3>Footer</k3>
 -   Estilizar os elementos do footer
