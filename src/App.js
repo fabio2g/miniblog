@@ -1,6 +1,6 @@
 import "./App.css";
 import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useAuthentication } from "./hooks/useAuthentication";
 import Footer from "./components/Footer/Footer";
@@ -48,7 +48,7 @@ function App() {
     };
 
     return (
-        <div className={theme === "Light" ? "App" : "App dark"}>
+        <div className={theme === "Dark" ? "App dark" : "App"}>
             <AuthProvider value={{ user }}>
                 <ThemeProvider value={theme}>
                     <BrowserRouter>
