@@ -26,7 +26,7 @@ const Search = () => {
                 <input
                     type="text"
                     name="search"
-                    placeholder="Pesquise postagens por palavra chave..."
+                    placeholder="Pesquise por postagens"
                     onChange={(e) => setSearch(e.target.value)}
                 />
             </form>
