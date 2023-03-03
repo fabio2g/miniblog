@@ -1,3 +1,7 @@
+h2 {
+    font-size: 28px;
+}
+
 h2,
 p {
     margin: 0;
@@ -11,12 +15,12 @@ a {
 
 .card {
     background: #ffff;
-    box-shadow: rgba(78, 78, 78, 0.2) 0px 7px 29px 0px;
+    /* box-shadow: rgba(78, 78, 78, 0.2) 0px 7px 29px 0px; */
 }
 
 .cardDark {
     background: transparent;
-    box-shadow: rgba(0, 0, 0, 0.6) 0px 7px 29px 0px;
+    /* box-shadow: rgba(0, 0, 0, 0.6) 0px 7px 29px 0px; */
 }
 
 .cardDark h2 {
@@ -30,16 +34,15 @@ a {
 .card,
 .cardDark {
     display: flex;
-    width: 800px;
-    max-width: 800px;
-    height: 260px;
-    border-radius: 20px;
+    width: 900px;
+    max-width: 900px;
+    height: 300px;
     overflow: hidden;
 }
 
 .card .image,
 .cardDark .image {
-    width: 35%;
+    width: 60%;
     overflow: hidden;
     padding: 16px;
 }
@@ -49,7 +52,6 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
 }
 
 .card .content,
@@ -61,11 +63,19 @@ a {
 
 .card .content .title,
 .cardDark .content .title {
-    height: 60px;
+    height: 70px;
+    margin-bottom: 12px;
 }
 
 .card .content .body,
 .cardDark .content .body {
-    height: 145px;
+    margin: 14px 0 18px 0;
+    width: 500px;
+    height: 110px;
     line-height: 30px;
+    /* background: tomato; */
+}
+
+.infoDate {
+    color: #999;
 }

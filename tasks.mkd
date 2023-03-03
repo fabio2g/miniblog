@@ -13,3 +13,6 @@
 
 <k3>Footer</k3>
 -   Estilizar os elementos do footer
+
+<h3>App<h3/>
+- Tema dark não esta sendo aplicado corretamente ao iniciar

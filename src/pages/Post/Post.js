@@ -31,7 +31,6 @@ const Post = () => {
         setContent(post.body);
     }, [post.body, content]);
 
-
     return (
         <div className={styles.box_post} onLoad={updateView}>
             {loading ? (
