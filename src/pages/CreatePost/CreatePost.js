@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
+import { useDetox } from "../../hooks/useDetox";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import styles from "./CreatePost.module.css";
 
@@ -12,6 +13,10 @@ const CreatePost = () => {
     const [error, setError] = useState("");
 
     const { user } = useAuthValue();
+
+    const detox = useDetox();
+    console.log(detox);
+
     const {
         insertDocument,
         loading,
@@ -34,7 +39,7 @@ const CreatePost = () => {
             .map((tag) => tag.trim().toLowerCase());
 
         insertDocument({
-            title,
+            title: detox(title),
             image,
             body,
             tagsArray,
@@ -65,7 +70,7 @@ const CreatePost = () => {
                         placeholder="Pense em um bom título (maximo 57 caracteres)"
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
-                        maxLength={2}
+                        maxLength={57}
                     />
                 </label>
                 <label>

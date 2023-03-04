@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const forbiddenWords = [
     "aidético",
     "aidética",
@@ -337,17 +339,25 @@ const forbiddenWords = [
     "xoxota",
 ];
 
-export function detoxString(text) {
-    const words = text
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "") // remove acentos
-        .replace(/[^\w\s]/gi, "") // remove vírgula e pontuações
-        .toLowerCase()
-        .split(" ");
+export const useDetox = (text) => {
+    const [words, setWords] = useState([]);
+
+    useEffect(() => {
+        if (!text) return;
+
+        let textWords = text
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") // remove acentos
+            .replace(/[^\w\s]/gi, "") // remove vírgula e pontuações
+            .toLowerCase()
+            .split(" ");
+
+        setWords(textWords);
+    }, [text]);
 
     let banned = words.filter((word) => {
         if (forbiddenWords.includes(word)) return word;
     });
 
     return banned;
-}
+};

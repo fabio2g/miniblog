@@ -49,8 +49,6 @@ const CardPost = ({ post }) => {
         return description;
     };
 
-    console.log(post.title.length);
-
     return (
         <div
             className={theme === "Dark" ? styles.cardDark : styles.card}

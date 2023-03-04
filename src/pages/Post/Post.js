@@ -4,6 +4,7 @@ import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useUpdateDocument } from "../../hooks/useUpdateDocument";
+import { useDetox } from "../../hooks/useDetox";
 
 const Post = () => {
     const [content, setContent] = useState("");
