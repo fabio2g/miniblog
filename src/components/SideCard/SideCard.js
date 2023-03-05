@@ -1,13 +1,24 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { ThemeContext } from "../../context/ThemeContext";
 import styles from "./SideCard.module.css";
 
 const SideCard = ({ post }) => {
+    const theme = useContext(ThemeContext);
+
     return (
-        <div className={styles.container}>
-            {/* <img src={post[0].image} alt={""} />
-            <div className={styles.content}>
-                <p>{post[1].title}</p>
-            </div> */}
-        </div>
+        <Link to={`/post/${post.id}`}>
+            <div
+                className={
+                    theme === "Dark" ? styles.containerDark : styles.container
+                }
+            >
+                <img src={post.image} alt={""} />
+                <div className={styles.content}>
+                    <h2>{post.title}</h2>
+                </div>
+            </div>
+        </Link>
     );
 };
 

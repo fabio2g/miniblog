@@ -7,14 +7,16 @@
     max-width: 360px;
     flex-grow: 1;
     margin-top: 6em;
-    border-radius: 30px;
+    margin-left: 30px;
+    border-radius: 8px;
+    
 }
 
+
 .sideBar {
-    background: #ffffff;
+    background: #efefef;
 }
 
 .sideBarDark {
-    background: transparent;
-    box-shadow: rgba(0, 0, 0, 0.6) 0px 7px 29px 0px;
+    background: #24252f;
 }

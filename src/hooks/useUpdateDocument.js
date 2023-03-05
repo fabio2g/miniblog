@@ -35,7 +35,10 @@ export const useUpdateDocument = (collection, id) => {
      * Atualiza o campo "view" do banco com uma novo registro de view.
      */
     const updateView = async () => {
-        if (!post.view) return;
+        console.log("1");
+        // if (!post.view) return;
+        console.log("2");
+        
         try {
             const addView = post.view + 1;
 

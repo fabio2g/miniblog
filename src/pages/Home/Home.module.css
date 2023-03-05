@@ -26,8 +26,6 @@ button {
     gap: 50px;
 }
 
-
-
 @media (max-width: 600px) {
     .content h1 {
         font-size: 30px;

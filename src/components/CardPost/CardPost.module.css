@@ -15,12 +15,10 @@ a {
 
 .card {
     background: #ffff;
-    /* box-shadow: rgba(78, 78, 78, 0.2) 0px 7px 29px 0px; */
 }
 
 .cardDark {
     background: transparent;
-    /* box-shadow: rgba(0, 0, 0, 0.6) 0px 7px 29px 0px; */
 }
 
 .cardDark h2 {
@@ -44,7 +42,7 @@ a {
 .cardDark .image {
     width: 60%;
     overflow: hidden;
-    padding: 16px;
+    padding: 16px 16px 16px 0;
 }
 
 .card img,
@@ -52,6 +50,7 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 6px;
 }
 
 .card .content,

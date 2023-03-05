@@ -1,24 +1,32 @@
-.container {
+.container,
+.containerDark {
     display: flex;
     width: 240px;
     max-width: 240px;
-    /* background: tomato; */
     margin-top: 2em;
 }
 
-.container img {
-    width: 80px;
+.container img,
+.containerDark img {
+    width: 120px;
     height: 100%;
+    border-radius: 4px;
 }
 
-.container .content {
+.container .content,
+.containerDark .content {
     text-align: left;
 }
 
-.container .content p {
+.container .content h2,
+.containerDark .content h2 {
     margin: 0;
-    margin-left: 6px;
+    margin-left: 10px;
     font-weight: bold;
     font-size: 12px;
     line-height: normal;
+}
+
+.containerDark .content h2 {
+    color: #fff;
 }

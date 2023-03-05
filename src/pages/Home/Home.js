@@ -9,7 +9,7 @@ const Home = ({ theme }) => {
     return (
         <div className={styles.container}>
             <div className={styles.main}>
-                {/* <SideBar /> */}
+                <SideBar />
                 <div className={styles.content}>
                     {loading && (
                         <div className={"loading"}>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
-import { useDetox } from "../../hooks/useDetox";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import styles from "./CreatePost.module.css";
 
@@ -13,9 +12,6 @@ const CreatePost = () => {
     const [error, setError] = useState("");
 
     const { user } = useAuthValue();
-
-    const detox = useDetox();
-    console.log(detox);
 
     const {
         insertDocument,
@@ -39,7 +35,7 @@ const CreatePost = () => {
             .map((tag) => tag.trim().toLowerCase());
 
         insertDocument({
-            title: detox(title),
+            title,
             image,
             body,
             tagsArray,
@@ -53,7 +49,7 @@ const CreatePost = () => {
     };
 
     useEffect(() => {
-        if (errorInsert) return () => setError(errorInsert);
+        if (errorInsert) setError(errorInsert);
     }, [errorInsert]);
 
     return (

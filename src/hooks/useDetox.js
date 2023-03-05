@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 const forbiddenWords = [
     "aidético",
     "aidética",
@@ -339,29 +338,32 @@ const forbiddenWords = [
     "xoxota",
 ];
 
-export const useDetox = (text) => {
-    const [words, setWords] = useState([]);
+export const useDetox = () => {
+    const [text, setText] = useState("");
+    const [error, setError] = useState(null);
+
+    const banned = (args) => {
+        if (!args) return;
+        setText(args);
+    };
 
     useEffect(() => {
         if (!text) return;
 
-        let textWords = text
+        const words = text
             .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "") // remove acentos
-            .replace(/[^\w\s]/gi, "") // remove vírgula e pontuações
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^\w\s]/gi, "")
+            .replace(/['"]/g, "")
             .toLowerCase()
             .split(" ");
 
-        setWords(textWords);
+        const wordsBanned = words.filter((e) => forbiddenWords.includes(e));
+
+        if (wordsBanned.length > 0) {
+            setError("Desculpe, não é permitido o uso de palavras impróprias.");
+        }
     }, [text]);
 
-    let banned = words.filter((word) => {
-        if (forbiddenWords.includes(word)) return word;
-    });
-
-    return banned;
+    return { banned, error };
 };
-
-//teste
-
-
