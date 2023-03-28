@@ -1,80 +1,38 @@
-h2 {
-    font-size: 28px;
-}
-
-h2,
-p {
-    margin: 0;
-    padding: 0;
-    color: #2c2c2c;
+h2, p {
+    margin: 0 !important;
 }
 
 a {
     text-decoration: none;
+    color: #000;
 }
 
 .card {
-    background: #ffff;
-}
-
-.cardDark {
-    background: transparent;
-}
-
-.cardDark h2 {
-    color: var(--color-primary);
-}
-
-.cardDark p {
-    color: #fefefe;
-}
-
-.card,
-.cardDark {
+    width: 865px;
+    height: 294px;
     display: flex;
-    width: 900px;
-    max-width: 900px;
-    height: 300px;
-    overflow: hidden;
+    margin-bottom: 98px;
+    gap: 34px;
 }
 
-.card .image,
-.cardDark .image {
-    width: 60%;
-    overflow: hidden;
-    padding: 16px 16px 16px 0;
+.card .image img {
+    width: 474px;
+    height: 293px;
 }
 
-.card img,
-.cardDark img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 6px;
-}
+.card .content {
 
-.card .content,
-.cardDark .content {
-    width: 65%;
     text-align: left;
-    padding: 16px;
 }
 
-.card .content .title,
-.cardDark .content .title {
-    height: 70px;
-    margin-bottom: 12px;
+.content .title h2 {
+    font-size: 22px;
+    color: var(--black-primary);
 }
 
-.card .content .body,
-.cardDark .content .body {
-    margin: 14px 0 18px 0;
-    width: 500px;
-    height: 110px;
-    line-height: 30px;
-    /* background: tomato; */
-}
-
-.infoDate {
-    color: #999;
+.content .body  {
+    line-height: 26px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #716C6C;
 }

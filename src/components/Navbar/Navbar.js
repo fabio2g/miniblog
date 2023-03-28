@@ -38,50 +38,58 @@ const Navbar = (props) => {
     return (
         <nav className={theme === "Dark" ? styles.navbarDark : styles.navbar}>
             <div className={styles.container}>
-                <NavLink className={styles.brand} to={"/"}>
-                    Mini<span>Blog</span>
-                </NavLink>
-                <ul className={styles.links}>
-                    {!user && (
-                        <li>
-                            <NavLink to={"/login"}>Entrar</NavLink>
-                        </li>
-                    )}
-                    <li>
-                        <NavLink to={"/"}>Inicio</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/post/create"}>Postar</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/dashboard"}>Dashboard</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to={"/about"}>Sobre</NavLink>
-                    </li>
 
-                    {user && (
+                <div className={styles.user}>
+                    <NavLink className={styles.brand} to={"/"}>
+                        Mini<span>Blog</span>
+                    </NavLink>
+                </div>
+
+                <div className={styles.links}>
+                    <ul>
+                        {!user && (
+                            <li>
+                                <NavLink to={"/login"}>ENTRAR</NavLink>
+                            </li>
+                        )}
                         <li>
-                            <NavLink to={"#"} onClick={handleButtonClose}>
-                                Sair
-                            </NavLink>
+                            <NavLink to={"/"}>INICIO</NavLink>
                         </li>
-                    )}
-                    <li className={styles.themeMode}>
-                        <button onClick={handleButtonTheme}>
-                            {theme === "Dark" ? (
-                                <span className={styles.iconMoon}>
-                                    <i className="fa-regular fa-moon"></i>
-                                </span>
-                            ) : (
-                                <span className={styles.iconSun}>
-                                    <i className="fa-regular fa-sun"></i>
-                                    {/* <i class="fa-solid fa-sun"></i> */}
-                                </span>
-                            )}
-                        </button>
-                    </li>
-                </ul>
+                        <li>
+                            <NavLink to={"/post/create"}>POSTAR</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={"/dashboard"}>DASHBOARD</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to={"/about"}>SOBRE</NavLink>
+                        </li>
+
+                        {user && (
+                            <li>
+                                <NavLink to={"#"} onClick={handleButtonClose}>
+                                    Sair
+                                </NavLink>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+
+                <div className={styles.buttonTheme}>
+                    <button onClick={handleButtonTheme}>
+                        {theme === "Dark" ? (
+                            <span className={styles.iconMoon}>
+                                <i className="fa-regular fa-moon"></i>
+                            </span>
+                        ) : (
+                            <span className={styles.iconSun}>
+                                <i className="fa-regular fa-sun"></i>
+                                {/* <i class="fa-solid fa-sun"></i> */}
+                            </span>
+                        )}
+                    </button>
+                </div>
+
             </div>
         </nav>
     );

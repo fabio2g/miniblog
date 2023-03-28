@@ -60,20 +60,21 @@ const CardPost = ({ post }) => {
                 </Link>
             </div>
             <div className={styles.content}>
+                <div className={styles.infoDate}>
+                    <small>
+                        @{post.createdBy} - {formatDatePost(post.createAt)}
+                    </small>
+                </div>
                 <Link to={`/post/${post.id}`}>
                     <div className={styles.title}>
                         <h2>{post.title}</h2>
-                    </div>
-                    <div className={styles.infoDate}>
-                        <small>
-                            @{post.createdBy} - {formatDatePost(post.createAt)}
-                        </small>
                     </div>
                     <div className={styles.body}>
                         <p>{formatedBody()}</p>
                     </div>
                 </Link>
-                <InteractionBar post={post} />
+                <button>Saiba Mais</button>
+                {/* <InteractionBar post={post} /> */}
             </div>
         </div>
     );
