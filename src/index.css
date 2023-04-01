@@ -3,10 +3,12 @@
 :root {
     --bg-light: #fbf1c7;
     --black-primary: #17150C;
+    --orange-primary: #D65D0E;
+    --dark-yellow: #A7880C;
 
-    --color-primary: #ffa032;
+
     --color-danger: #f44336;
-    --color-dark-primary: #1c1c1c;
+  
 }
 
 body {

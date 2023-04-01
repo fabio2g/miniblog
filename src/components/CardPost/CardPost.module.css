@@ -21,18 +21,50 @@ a {
 }
 
 .card .content {
-
     text-align: left;
 }
 
 .content .title h2 {
-    font-size: 22px;
+    font-size: 24px;
     color: var(--black-primary);
 }
 
 .content .body  {
     line-height: 26px;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 300;
     color: #716C6C;
+
+}
+
+.content .infoDate {
+    font-size: 14px;
+    font-weight: 300;
+    color: #716C6C;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+.content .title {
+    height: 52px;
+    font-size: 24px;
+    margin-bottom: 19px;
+}
+
+.content .body {
+    height: 124px;
+    margin-bottom: 19px;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.content .button {
+    border: none;
+    width: 170px;
+    height: 56px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    background: var(--dark-yellow);
+    color: #fff;
 }

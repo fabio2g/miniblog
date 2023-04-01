@@ -38,11 +38,17 @@ const Navbar = (props) => {
     return (
         <nav className={theme === "Dark" ? styles.navbarDark : styles.navbar}>
             <div className={styles.container}>
-
                 <div className={styles.user}>
-                    <NavLink className={styles.brand} to={"/"}>
-                        Mini<span>Blog</span>
-                    </NavLink>
+                    <div className={styles.imgProfile}>
+                        <img
+                            src="https://images.unsplash.com/photo-1499229694635-fc626e0d9c01?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODF8fHByb2ZsZSUyMHdvbWFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                            alt="Woman"
+                        />
+                    </div>
+                    <div className={styles.salutation}>
+                        <span>Bem vindo(a),</span>
+                        <span>Jane Doe</span>
+                    </div>
                 </div>
 
                 <div className={styles.links}>
@@ -83,13 +89,92 @@ const Navbar = (props) => {
                             </span>
                         ) : (
                             <span className={styles.iconSun}>
-                                <i className="fa-regular fa-sun"></i>
-                                {/* <i class="fa-solid fa-sun"></i> */}
+                                <svg
+                                    width="38"
+                                    height="38"
+                                    viewBox="0 0 38 38"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <g clip-path="url(#clip0_6_92)">
+                                        <path
+                                            d="M19 26.9167C23.3722 26.9167 26.9166 23.3723 26.9166 19C26.9166 14.6278 23.3722 11.0833 19 11.0833C14.6277 11.0833 11.0833 14.6278 11.0833 19C11.0833 23.3723 14.6277 26.9167 19 26.9167Z"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M19 1.58334V4.75001"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M19 33.25V36.4167"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M6.68164 6.68167L8.92997 8.93"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M29.07 29.07L31.3183 31.3183"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M1.58331 19H4.74998"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M33.25 19H36.4167"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M6.68164 31.3183L8.92997 29.07"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                        <path
+                                            d="M29.07 8.93L31.3183 6.68167"
+                                            stroke="#A7880C"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_6_92">
+                                            <rect
+                                                width="38"
+                                                height="38"
+                                                fill="white"
+                                            />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
                             </span>
                         )}
                     </button>
                 </div>
-
             </div>
         </nav>
     );

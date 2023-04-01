@@ -66,7 +66,7 @@ const CreatePost = () => {
                         placeholder="Pense em um bom título (maximo 57 caracteres)"
                         onChange={(e) => setTitle(e.target.value)}
                         value={title}
-                        maxLength={57}
+                        maxLength={50}
                     />
                 </label>
                 <label>

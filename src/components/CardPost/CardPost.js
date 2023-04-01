@@ -55,25 +55,24 @@ const CardPost = ({ post }) => {
             key={post.id}
         >
             <div className={styles.image}>
-                <Link to={`/post/${post.id}`}>
+                <div to={`/post/${post.id}`}>
                     <img src={post.image} alt={post.title} />
-                </Link>
+                </div>
             </div>
+            {/* Conteudo */}
             <div className={styles.content}>
                 <div className={styles.infoDate}>
                     <small>
                         @{post.createdBy} - {formatDatePost(post.createAt)}
                     </small>
                 </div>
-                <Link to={`/post/${post.id}`}>
-                    <div className={styles.title}>
-                        <h2>{post.title}</h2>
-                    </div>
-                    <div className={styles.body}>
-                        <p>{formatedBody()}</p>
-                    </div>
-                </Link>
-                <button>Saiba Mais</button>
+                 <div className={styles.title}>
+                    <h2>{post.title}</h2>
+                </div>
+                <div className={styles.body}>
+                    <p>{formatedBody()}</p>
+                </div>
+                <button className={styles.button}>Saiba mais</button>
                 {/* <InteractionBar post={post} /> */}
             </div>
         </div>

@@ -8,11 +8,40 @@
 
 .navbar .container {
     max-width: 1512px;
+    height: 105px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 100px;
+}
+
+.container .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user .imgProfile {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user .salutation span {
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    display: block;
+    text-align: left;
+    line-height: 22px;
+    margin-left: 10px;
+}
+
+
+.imgProfile img {
+    width: 100%;
 }
 
 .container .links ul {
@@ -23,13 +52,18 @@
 
 .links ul a {
     color: #fff;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.links ul a:hover {
+    transition: 5ms;
+    color: var(--orange-primary);
 }
 
 .container .buttonTheme button {
     background: transparent;
-    color: #fff;
     border: none;
-    font-size: 28px;
+    cursor: pointer;
 }
+
