@@ -8,27 +8,20 @@ const Home = ({ theme }) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.main}>
-                {/* <SideBar /> */}
-                <div className={styles.content}>
-                    {loading && (
-                        <div className={"loading"}>
-                            <div className="loader"></div>
-                        </div>
-                    )}
-                    <div className={styles.posts}>
-                        {posts &&
-                            posts.map((post) => (
-                                <CardPost
-                                    key={post.id}
-                                    post={post}
-                                    theme={theme}
-                                />
-                            ))}
+            <SideBar />
+            <div className={styles.content}>
+                {loading && (
+                    <div className={"loading"}>
+                        <div className="loader"></div>
                     </div>
-
-                    {error && <h3>{error}</h3>}
+                )}
+                <div className={styles.posts}>
+                    {posts &&
+                        posts.map((post) => (
+                            <CardPost key={post.id} post={post} theme={theme} />
+                        ))}
                 </div>
+                {error && <h3>{error}</h3>}
             </div>
         </div>
     );

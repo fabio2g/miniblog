@@ -13,7 +13,7 @@ const SideCard = ({ post }) => {
                     theme === "Dark" ? styles.containerDark : styles.container
                 }
             >
-                <img src={post.image} alt={""} />
+                <img className={styles.imageCard} src={post.image} alt={""} />
                 <div className={styles.content}>
                     <h2>{post.title}</h2>
                 </div>

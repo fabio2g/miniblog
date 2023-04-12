@@ -1,32 +1,16 @@
-.container,
-.containerDark {
+.container, .containerDark {
     display: flex;
-    width: 240px;
-    max-width: 240px;
-    margin-top: 2em;
 }
 
-.container img,
-.containerDark img {
-    width: 120px;
-    height: 100%;
-    border-radius: 4px;
+.imageCard {
+    width: 208px;
+    height: 128px;
+    margin-right: 10px;
+    margin-bottom: 42px;
 }
 
-.container .content,
-.containerDark .content {
-    text-align: left;
-}
-
-.container .content h2,
-.containerDark .content h2 {
-    margin: 0;
-    margin-left: 10px;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: normal;
-}
-
-.containerDark .content h2 {
-    color: #fff;
+.content h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--orange-primary)
 }

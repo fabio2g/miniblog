@@ -2,21 +2,14 @@
 .sideBarDark {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 360px;
-    max-width: 360px;
-    flex-grow: 1;
-    margin-top: 6em;
-    margin-left: 30px;
-    border-radius: 8px;
-    
+    width: 356px;
+    text-align: left;  
 }
 
-
-.sideBar {
-    background: #efefef;
+.title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 25px;
+    margin-bottom: 42px;
 }
 
-.sideBarDark {
-    background: #24252f;
-}

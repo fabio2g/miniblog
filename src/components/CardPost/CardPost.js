@@ -66,9 +66,10 @@ const CardPost = ({ post }) => {
                         @{post.createdBy} - {formatDatePost(post.createAt)}
                     </small>
                 </div>
-                 <div className={styles.title}>
+                <div className={styles.title}>
                     <h2>{post.title}</h2>
                 </div>
+
                 <div className={styles.body}>
                     <p>{formatedBody()}</p>
                 </div>

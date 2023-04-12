@@ -12,7 +12,7 @@ a {
     height: 294px;
     display: flex;
     margin-bottom: 98px;
-    gap: 34px;
+    gap: 37px;
 }
 
 .card .image img {
@@ -22,19 +22,25 @@ a {
 
 .card .content {
     text-align: left;
+    margin: 0;
+    padding: 0;
+    width: 361px;
+    overflow: hidden;
 }
 
 .content .title h2 {
+   
     font-size: 24px;
+    font-weight: 600;
     color: var(--black-primary);
 }
+
 
 .content .body  {
     line-height: 26px;
     font-size: 17px;
     font-weight: 300;
     color: #716C6C;
-
 }
 
 .content .infoDate {
@@ -64,7 +70,8 @@ a {
     height: 56px;
     border-radius: 5px;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     background: var(--dark-yellow);
     color: #fff;
 }
+

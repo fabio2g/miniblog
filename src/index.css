@@ -5,17 +5,13 @@
     --black-primary: #17150C;
     --orange-primary: #D65D0E;
     --dark-yellow: #A7880C;
-
-
     --color-danger: #f44336;
-  
 }
 
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: "Montserrat", sans-serif; */
     font-family: 'Roboto', sans-serif;
     font-family: roboto;
     background: var(--bg-light);
@@ -56,7 +52,6 @@ nav a {
 }
 
 /* Form */
-
 .form {
     display: flex;
     flex-direction: column;
@@ -94,7 +89,6 @@ nav a {
 
 .form label textarea {
     max-width: 96%;
-
     border: 1px solid #999;
     padding: 12px;
 }
@@ -158,7 +152,6 @@ nav a {
 }
 
 /* loading */
-
 .box_loader {
     width: 100%;
     height: 100vh;

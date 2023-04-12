@@ -14,10 +14,13 @@ const SideBar = () => {
 
     return (
         <div className={theme === "Dark" ? styles.sideBarDark : styles.sideBar}>
-            <Search />
-            <span>Posts recomendos</span>
+            <span className={styles.title}>Recomendos</span>
             {viewOrder &&
-                viewOrder.map((post) => <SideCard key={post.id} post={post} />)}
+                viewOrder.map((post, index) => {
+                    // retorna os 3 primeiros posts
+                    if (index <= 2)
+                        return <SideCard key={post.id} post={post} />;
+                })}
         </div>
     );
 };

@@ -1,4 +1,6 @@
 .container {
     width: 100%;
-    margin-top: calc(90px + 98px);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
