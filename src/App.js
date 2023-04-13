@@ -48,7 +48,7 @@ function App() {
     };
 
     return (
-        <div className={theme === "Dark" ? "App dark" : "App"}>
+        <div className={theme === "Dark" ? "Dark" : "App"}>
             <AuthProvider value={{ user }}>
                 <ThemeProvider value={theme}>
                     <BrowserRouter>

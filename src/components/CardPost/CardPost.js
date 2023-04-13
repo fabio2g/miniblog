@@ -51,13 +51,11 @@ const CardPost = ({ post }) => {
 
     return (
         <div
-            className={theme === "Dark" ? styles.cardDark : styles.card}
+            className={theme === "Dark" ? styles.dark : styles.light}
             key={post.id}
         >
             <div className={styles.image}>
-                <div to={`/post/${post.id}`}>
-                    <img src={post.image} alt={post.title} />
-                </div>
+                <img src={post.image} alt={post.title} />
             </div>
             {/* Conteudo */}
             <div className={styles.content}>
@@ -73,7 +71,9 @@ const CardPost = ({ post }) => {
                 <div className={styles.body}>
                     <p>{formatedBody()}</p>
                 </div>
-                <button className={styles.button}>Saiba mais</button>
+                <Link to={`/post/${post.id}`}>
+                    <button className={styles.button}>Saiba mais</button>
+                </Link>
                 {/* <InteractionBar post={post} /> */}
             </div>
         </div>

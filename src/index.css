@@ -2,10 +2,13 @@
 
 :root {
     --bg-light: #fbf1c7;
+    --bg-dark: #282828;
     --black-primary: #17150C;
     --orange-primary: #D65D0E;
+    --light-yellow: #DFDBA5;
     --dark-yellow: #A7880C;
     --color-danger: #f44336;
+    --green: #3C926E;
 }
 
 body {

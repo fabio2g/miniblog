@@ -1,11 +1,19 @@
-.navbar {
+.light, .dark {
     position: absolute;
     top: 0;
     width: 100%;
-    background: var(--black-primary);
 } 
 
-.navbar .container {
+.light {
+    background: var(--black-primary);
+}
+
+.dark {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid #3B3735;
+}
+
+.container {
     max-width: 1340px;
     height: 114px;
     margin: auto;
@@ -39,6 +47,9 @@
     margin-left: 10px;
 }
 
+.dark .salutation span {
+    color: var(--light-yellow);
+}
 
 .imgProfile img {
     width: 100%;
@@ -50,11 +61,18 @@
     gap: 50px;
 }
 
-.links ul a {
-    color: #fff;
+.light .links a, .dark .links a {
     font-size: 17px;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.light .links a {
+    color: #fff;
+}
+
+.dark .links a {
+    color: var(--light-yellow);
 }
 
 .links ul a:hover {
@@ -62,9 +80,15 @@
     color: var(--orange-primary);
 }
 
+ 
+
 .container .buttonTheme button {
     background: transparent;
     border: none;
     cursor: pointer;
+}
+
+.iconMoon i {
+    color: var(--light-yellow);
 }
 

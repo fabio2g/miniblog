@@ -36,7 +36,7 @@ const Navbar = (props) => {
     }, []);
 
     return (
-        <nav className={theme === "Dark" ? styles.navbarDark : styles.navbar}>
+        <nav className={theme === "Dark" ? styles.dark : styles.light}>
             <div className={styles.container}>
                 <div className={styles.user}>
                     <div className={styles.imgProfile}>

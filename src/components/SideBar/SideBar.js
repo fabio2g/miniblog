@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
-import Search from "../Search/Search";
 import SideCard from "../SideCard/SideCard";
 import styles from "./SideBar.module.css";
 
@@ -14,9 +13,10 @@ const SideBar = () => {
 
     return (
         <div className={theme === "Dark" ? styles.sideBarDark : styles.sideBar}>
-            <span className={styles.title}>Recomendos</span>
+            <span className={styles.title}>Recomendados</span>
             {viewOrder &&
-                viewOrder.map((post, index) => {
+                // eslint-disable-next-line array-callback-return
+                viewOrder.map(function (post, index) {
                     // retorna os 3 primeiros posts
                     if (index <= 2)
                         return <SideCard key={post.id} post={post} />;
